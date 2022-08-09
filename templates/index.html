@@ -4,19 +4,82 @@
     <meta charset="UTF-8">
     <title>Jim's Personal Website</title>
     <link rel="icon" href="static/icon/favicon-16x16.png">
+
+    <!-- Bootstrap -->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <!-- Font Awesome-->
+    <script src="https://kit.fontawesome.com/404f7ec112.js" crossorigin="anonymous"></script>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+            crossorigin="anonymous"></script>
+
+    <!-- Jim's CSS-->
     <link rel="stylesheet" href="static/css/styles.css">
+
 </head>
 <body>
-<div class="head-container">
-    <h1>This is header</h1>
-</div>
-<div class="container">
-    <h1>Hello World!</h1>
-</div>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Jim</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <div class="d-flex justify-content-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Portfolio</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<section class="color-section" id="title">
+    <div class="body-container">
+        <h1>Hello World!</h1>
+    </div>
+</section>
 </body>
 <footer>
     <div class="foot-container">
-        <h1>This is footer</h1>
+        <div class="container-fluid">
+            <div class="row">
+                <ul>
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <i class="social-icon fa-brands fa-twitter"></i>
+                        <i class="social-icon fa-brands fa-facebook-f"></i>
+                        <i class="social-icon fa-brands fa-github"></i>
+                        <i class="social-icon fa-solid fa-envelope"></i>
+                        <p class="copyright text-muted">Copyright &copy; Jim's Website 2022</p>
+                    </div>
+                </ul>
+            </div>
+        </div>
     </div>
 </footer>
 </html>

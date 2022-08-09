@@ -1,12 +1,19 @@
+/* Head Container*/
 .head-container {
   background-color: #222831;
 }
-.container {
+
+/* Body Container*/
+.body-container {
    background-color: black;
+   text-align: center;
+   padding: 7% 15%;
 }
-.container h1{
-    color: white
-}
+
+/* Foot Container*/
 .foot-container {
    background-color: #D65A31;
+   text-align: center;
+   padding: 3% 15%;
 }
+
