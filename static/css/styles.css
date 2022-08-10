@@ -3,6 +3,11 @@
   background-color: #222831;
 }
 
+/* Body */
+body{
+    font-size:20px
+}
+
 /* Body Container*/
 .body-container {
    background-color: black;
