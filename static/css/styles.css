@@ -24,7 +24,7 @@ body{
 header.master-head{
     background-color:black;
 }
-header.master-head .flex-row{
+header.master-head{
     padding: 200px 0 250px;
 }
 header.master-head .head-comment{
