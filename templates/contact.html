@@ -1,7 +1,13 @@
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block content %}
 {% include "header.html" %}
 <header class="master-head">
     <div class="container">
         <h1>contact</h1>
+        {{ wtf.quick_form(contact_form, novalidate=True, button_map={"submit": "primary"}) }}
     </div>
 </header>
 {% include "footer.html" %}
+{% endblock %}
