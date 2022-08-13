@@ -1,46 +1,21 @@
 from flask import Flask
 from flask import render_template
 
+# self import
+from blog import blog_blueprint
+from user import user_blueprint
+from portfolio import portfolio_blueprint
+
 app = Flask(__name__)
+app.register_blueprint(blog_blueprint)
+app.register_blueprint(user_blueprint)
+app.register_blueprint(portfolio_blueprint)
 
 
+# Home
 @app.route('/')
 def home():
     return render_template('index.html')
-
-
-# Portfolio
-@app.route('/portfolio-index')
-def portfolio_index():
-    return render_template('portfolio-index.html')
-
-
-# Blog
-@app.route('/blog-index')
-def blog_index():
-    return render_template('blog-index.html')
-
-
-@app.route('/blog-make-post')
-def blog_make_post():
-    return render_template('blog-make-post.html')
-
-
-@app.route('/blog-post')
-def blog_post():
-    return render_template('blog-post.html')
-
-
-# Login
-@app.route('/login')
-def login():
-    return render_template('login.html')
-
-
-# Register
-@app.route('/register')
-def register():
-    return render_template('register.html')
 
 
 # About
