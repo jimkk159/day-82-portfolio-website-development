@@ -1,6 +1,9 @@
 from flask import Blueprint, render_template
 from forms import LoginForm, RegisterForm
 
+# self import
+from extension import db
+from SQL.SQL_management import User
 user_blueprint = Blueprint('user', __name__)
 
 
@@ -20,4 +23,9 @@ def register():
     if register_form.validate_on_submit():
         print(register_form.email.data, register_form.name.data, register_form.password.data,
               register_form.password_confirm.data)
+        new_user = User(email=register_form.email.data, name=register_form.name.data,
+                        password=register_form.password.data)
+        db.session.add(new_user)
+        db.session.commit()
+
     return render_template('register.html', register_form=register_form)

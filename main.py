@@ -1,11 +1,11 @@
 from flask import Flask
 from flask import render_template
 from flask_bootstrap import Bootstrap
-from flask_sqlalchemy import SQLAlchemy
 from forms import ContactForm
 import os
 
 # self import
+from extension import db, migrate
 from blog import blog_blueprint
 from user import user_blueprint
 from portfolio import portfolio_blueprint
@@ -22,7 +22,8 @@ Bootstrap(app)
 # SQL
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///personal_website.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+db.init_app(app)
+migrate.init_app(app, db)
 
 
 class Viewer(db.Model):
@@ -31,9 +32,6 @@ class Viewer(db.Model):
     email = db.Column(db.String(50), unique=True)
     phone = db.Column(db.String(50), nullable=False)
     message = db.Column(db.String(50), nullable=False)
-
-
-db.create_all()
 
 
 # Home
