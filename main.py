@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template
 from flask_bootstrap import Bootstrap
+from flask_sqlalchemy import SQLAlchemy
 from forms import ContactForm
 import os
 
@@ -17,6 +18,22 @@ app.register_blueprint(portfolio_blueprint)
 # WTF Form
 app.config['SECRET_KEY'] = os.urandom(32)
 Bootstrap(app)
+
+# SQL
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///personal_website.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+
+class Viewer(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(50), unique=True)
+    phone = db.Column(db.String(50), nullable=False)
+    message = db.Column(db.String(50), nullable=False)
+
+
+db.create_all()
 
 
 # Home
@@ -37,6 +54,10 @@ def contact():
     contact_form = ContactForm()
     if contact_form.validate_on_submit():
         print(contact_form.name.data, contact_form.email.data, contact_form.phone.data, contact_form.message.data)
+        new_viewer = Viewer(name=contact_form.name.data, email=contact_form.email.data, phone=contact_form.phone.data,
+                            message=contact_form.phone.data)
+        db.session.add(new_viewer)
+        db.session.commit()
     return render_template('contact.html', contact_form=contact_form)
 
 
