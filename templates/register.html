@@ -7,6 +7,13 @@
 <header class="master-head">
     <div class="container">
         <h1>register</h1>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         {{ wtf.quick_form(register_form, novalidate=True, button_map={"submit": "primary"}) }}
     </div>
 </header>

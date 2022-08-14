@@ -27,9 +27,15 @@ def login():
 def register():
     register_form = RegisterForm()
     if register_form.validate_on_submit():
+
+        if register_form.password.data != register_form.password_confirm.data:
+            flash('Confirm password fail')
+            return redirect(url_for('user.register'))
+
         if User.query.filter_by(email=register_form.email.data).first():
             flash('Email already exists')
             return redirect(url_for('user.login'))
+
         new_user = User(email=register_form.email.data,
                         name=register_form.name.data,
                         password=register_form.password.data)
