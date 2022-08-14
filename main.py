@@ -14,6 +14,8 @@ from portfolio import portfolio_blueprint
 from SQL.SQL_management import Viewer, User
 
 app = Flask(__name__)
+
+# BluePrint
 app.register_blueprint(blog_blueprint)
 app.register_blueprint(user_blueprint)
 app.register_blueprint(portfolio_blueprint)
@@ -31,6 +33,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 migrate.init_app(app, db)
 
+# Login
 login_manager = LoginManager()
 login_manager.init_app(app)
 

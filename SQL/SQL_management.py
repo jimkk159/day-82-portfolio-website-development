@@ -1,5 +1,7 @@
-from extension import db
 from flask_login import UserMixin
+
+# self import
+from extension import db
 
 
 class Viewer(db.Model):

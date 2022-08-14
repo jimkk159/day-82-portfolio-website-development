@@ -7,32 +7,18 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
+            {% for blog_post in blog_posts %}
             <div class="post-preview">
-                <a href="{{ url_for('blog.blog_post') }}">
-                    <h2 class="post-title">Title 1</h2>
-                    <h3 class="post-subtitle">Subtitle 1</h3>
+                <a href="{{ url_for('blog.show_blog_post', blog_post=blog_post.id) }}">
+                    <h2 class="post-title">{{ blog_post.title }}</h2>
+                    <h3 class="post-subtitle">{{ blog_post.subtitle }}</h3>
                 </a>
                 <p class="post-meta">Posted by
-                    <a href="#">Amy</a> on 2022-08-12
+                    <a href="#">{{ blog_post.author }}</a> on {{ blog_post.date }}
                 </p>
             </div>
             <hr>
-            <div class="post-preview">
-                <h2 class="post-title">Title 2</h2>
-                <h3 class="post-subtitle">Subtitle 2</h3>
-                <p class="post-meta">Posted by
-                    <a href="#">Jim</a> on 2022-08-13
-                </p>
-            </div>
-            <hr>
-            <div class="post-preview">
-                <h2 class="post-title">Title 3</h2>
-                <h3 class="post-subtitle">Subtitle 3</h3>
-                <p class="post-meta">Posted by
-                    <a href="#">John</a> on 2022-08-14
-                </p>
-            </div>
-            <hr>
+            {% endfor %}
         </div>
     </div>
 </div>

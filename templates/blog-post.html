@@ -6,11 +6,11 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
-            <h1>Title 1</h1>
-            <h2 class="subheading">Subtitle 1</h2>
+            <h1>{{ blog_post.title }}</h1>
+            <h2 class="subheading">{{ blog_post.subtitle }}</h2>
             <span class="meta">Posted by
-              <a href="#">Jim</a>
-              on 2022-08-11</span>
+              <a href="#">{{ blog_post.author }}</a>
+              on {{ blog_post.date }}</span>
           </div>
         </div>
       </div>
@@ -22,7 +22,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-            <p>Hello World!</p>
+            {{ blog_post.body }}
           <hr>
           </div>
       </div>
