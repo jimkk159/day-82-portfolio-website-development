@@ -1,11 +1,11 @@
 from flask import Flask
 from flask import render_template
 from flask_bootstrap import Bootstrap
-from forms import ContactForm
 import os
 
 # self import
 from extension import db, migrate
+from forms import ContactForm
 from blog import blog_blueprint
 from user import user_blueprint
 from portfolio import portfolio_blueprint
@@ -29,9 +29,9 @@ migrate.init_app(app, db)
 class Viewer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
-    email = db.Column(db.String(50), unique=True)
-    phone = db.Column(db.String(50), nullable=False)
-    message = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(50), unique=True, nullable=False)
+    phone = db.Column(db.String(20), nullable=True)
+    message = db.Column(db.String(500), nullable=True)
 
 
 # Home
