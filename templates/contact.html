@@ -6,6 +6,8 @@
 <header class="master-head">
     <div class="container">
         <h1>contact</h1>
+        {{ ckeditor.load() }}
+        {{ ckeditor.config(name='message') }}
         {{ wtf.quick_form(contact_form, novalidate=True, button_map={"submit": "primary"}) }}
     </div>
 </header>

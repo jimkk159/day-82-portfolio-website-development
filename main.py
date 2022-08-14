@@ -1,6 +1,7 @@
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template
+from flask_ckeditor import CKEditor
 from flask_bootstrap import Bootstrap
+from datetime import datetime
 import os
 
 # self import
@@ -9,11 +10,16 @@ from forms import ContactForm
 from blog import blog_blueprint
 from user import user_blueprint
 from portfolio import portfolio_blueprint
+from SQL.SQL_management import Viewer
+
 
 app = Flask(__name__)
 app.register_blueprint(blog_blueprint)
 app.register_blueprint(user_blueprint)
 app.register_blueprint(portfolio_blueprint)
+
+# CKEditor
+ckeditor = CKEditor(app)
 
 # WTF Form
 app.config['SECRET_KEY'] = os.urandom(32)
@@ -24,14 +30,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///personal_website.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 migrate.init_app(app, db)
-
-
-class Viewer(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), nullable=False)
-    email = db.Column(db.String(50), unique=True, nullable=False)
-    phone = db.Column(db.String(20), nullable=True)
-    message = db.Column(db.String(500), nullable=True)
 
 
 # Home
@@ -51,8 +49,10 @@ def about():
 def contact():
     contact_form = ContactForm()
     if contact_form.validate_on_submit():
-        print(contact_form.name.data, contact_form.email.data, contact_form.phone.data, contact_form.message.data)
-        new_viewer = Viewer(name=contact_form.name.data, email=contact_form.email.data, phone=contact_form.phone.data,
+        new_viewer = Viewer(datetime=datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                            name=contact_form.name.data,
+                            email=contact_form.email.data,
+                            phone=contact_form.phone.data,
                             message=contact_form.phone.data)
         db.session.add(new_viewer)
         db.session.commit()
@@ -61,3 +61,4 @@ def contact():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
