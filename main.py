@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from flask_login import LoginManager
 from flask_ckeditor import CKEditor
 from flask_bootstrap import Bootstrap
 from datetime import datetime
@@ -10,8 +11,7 @@ from forms import ContactForm
 from blog import blog_blueprint
 from user import user_blueprint
 from portfolio import portfolio_blueprint
-from SQL.SQL_management import Viewer
-
+from SQL.SQL_management import Viewer, User
 
 app = Flask(__name__)
 app.register_blueprint(blog_blueprint)
@@ -30,6 +30,14 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///personal_website.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 migrate.init_app(app, db)
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
 
 
 # Home
@@ -61,4 +69,3 @@ def contact():
 
 if __name__ == '__main__':
     app.run(debug=True)
-

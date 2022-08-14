@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, redirect, url_for, flash
-
+from flask_login import login_user
 # encryption
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -25,6 +25,8 @@ def login():
 
         # check password
         if check_password_hash(query_user.password, login_form.password.data):
+            login_user(query_user)
+
             return redirect(url_for('home'))
         else:
             flash('Password wrong')

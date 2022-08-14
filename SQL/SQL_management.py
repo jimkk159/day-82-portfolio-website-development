@@ -1,4 +1,5 @@
 from extension import db
+from flask_login import UserMixin
 
 
 class Viewer(db.Model):
@@ -10,7 +11,7 @@ class Viewer(db.Model):
     message = db.Column(db.Text, nullable=True)
 
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(50), nullable=False)
     name = db.Column(db.String(50), nullable=False)
