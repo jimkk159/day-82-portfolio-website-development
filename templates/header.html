@@ -42,12 +42,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('portfolio.portfolio_index') }}">Portfolio</a>
                     </li>
+                    {% if current_user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('user.logout') }}">Log Out</a>
+                    </li>
+                    {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('user.login') }}">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('user.register') }}">Register</a>
                     </li>
+                    {% endif %}
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('about') }}">About</a>
