@@ -16,10 +16,12 @@
                 <p class="post-meta">Posted by
                     <a href="#">{{ blog_post.author }}</a> on {{ blog_post.date }}
                 </p>
+                <a class="btn btn-primary float-right" href="{{ url_for('blog.delete_blog_post') }}">Delete</a>
             </div>
             <hr>
             {% endfor %}
         </div>
     </div>
 </div>
+<a class="btn btn-primary float-right" href="{{ url_for('blog.new_blog_post') }}">Create</a>
 {% include "footer.html" %}

@@ -22,3 +22,18 @@ def blog_make_post():
 def show_blog_post(blog_post):
     query_post = Post.query.get(blog_post)
     return render_template('blog-post.html', blog_post=query_post)
+
+
+@blog_blueprint.route('/new-blog-post')
+def new_blog_post():
+    return '<h1>new_blog_post</h1>'
+
+
+@blog_blueprint.route('/delete-blog-post')
+def delete_blog_post():
+    return '<h1>delete_blog_post</h1>'
+
+
+@blog_blueprint.route('/edit-blog-post')
+def edit_blog_post():
+    return '<h1>edit_blog_post</h1>'

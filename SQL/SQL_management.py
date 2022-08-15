@@ -27,3 +27,4 @@ class Post(db.Model):
     date = db.Column(db.String(250), nullable=False)
     body = db.Column(db.Text, nullable=False)
     author = db.Column(db.String(250), nullable=False)
+
