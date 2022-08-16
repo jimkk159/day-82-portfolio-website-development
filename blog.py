@@ -17,12 +17,6 @@ def blog_index():
     return render_template('blog-index.html', blog_posts=blog_posts)
 
 
-@blog_blueprint.route('/blog-make-post')
-@login_required
-def blog_make_post():
-    return render_template('new-blog-post.html')
-
-
 @blog_blueprint.route('/blog-post/<int:blog_post_id>', methods=['GET', 'POST'])
 def show_blog_post(blog_post_id):
     query_post = Post.query.get(blog_post_id)
@@ -60,6 +54,12 @@ def delete_blog_post(blog_post_id):
     db.session.delete(query_post)
     db.session.commit()
     return redirect(url_for('blog.blog_index'))
+
+
+@blog_blueprint.route('/blog-make-post')
+@login_required
+def blog_make_post():
+    return render_template('new-blog-post.html')
 
 
 @blog_blueprint.route('/edit-blog-post/<int:edit_post_id>', methods=['GET', 'POST'])
