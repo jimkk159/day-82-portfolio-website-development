@@ -3,8 +3,8 @@ from flask import Blueprint, render_template, redirect, url_for
 
 # self import
 from extension import db
-from forms import NewPostForm
-from SQL.SQL_management import Post
+from forms import NewPostForm, CommentForm
+from SQL.SQL_management import Post, Comment
 
 blog_blueprint = Blueprint('blog', __name__)
 
@@ -24,7 +24,15 @@ def blog_make_post():
 @blog_blueprint.route('/blog-post/<int:blog_post_id>', methods=['GET', 'POST'])
 def show_blog_post(blog_post_id):
     query_post = Post.query.get(blog_post_id)
-    return render_template('blog-post.html', blog_post=query_post)
+    comment_form = CommentForm()
+    blog_comments = Comment.query.all()
+    if comment_form.validate_on_submit():
+        new_comment = Comment(date=datetime.today().strftime('%Y-%m-%d %H:%M:%S'),
+                              body=comment_form.comment.data,
+                              author='Jim')
+        db.session.add(new_comment)
+        db.session.commit()
+    return render_template('blog-post.html', blog_post=query_post, comment_form=comment_form, blog_comments=blog_comments)
 
 
 @blog_blueprint.route('/new-blog-post', methods=['GET', 'POST'])

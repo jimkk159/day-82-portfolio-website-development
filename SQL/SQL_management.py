@@ -28,3 +28,9 @@ class Post(db.Model):
     body = db.Column(db.Text, nullable=False)
     author = db.Column(db.String(250), nullable=False)
 
+
+class Comment(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.String(50), nullable=False)
+    body = db.Column(db.Text, unique=True, nullable=False)
+    author = db.Column(db.String(250), nullable=False)
