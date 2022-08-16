@@ -5,9 +5,9 @@ from flask_login import login_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 
 # self import
-from .extension import db
-from .forms import LoginForm, RegisterForm
-from .SQL.SQL_management import User
+from extension import db
+from forms import LoginForm, RegisterForm
+from SQL.SQL_management import User
 
 user_blueprint = Blueprint('user', __name__)
 

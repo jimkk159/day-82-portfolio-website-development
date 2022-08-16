@@ -1,11 +1,11 @@
 from datetime import datetime
 from flask import Blueprint, render_template, redirect, url_for
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 # self import
-from .extension import db
-from .forms import NewPostForm, CommentForm
-from .SQL.SQL_management import Post, Comment
+from extension import db
+from forms import NewPostForm, CommentForm
+from SQL.SQL_management import Post, Comment
 
 blog_blueprint = Blueprint('blog', __name__)
 
@@ -25,7 +25,7 @@ def show_blog_post(blog_post_id):
     if comment_form.validate_on_submit():
         new_comment = Comment(date=datetime.today().strftime('%Y-%m-%d %H:%M:%S'),
                               body=comment_form.comment.data,
-                              author='Jim')
+                              author=current_user)
         db.session.add(new_comment)
         db.session.commit()
     return render_template('blog-post.html', blog_post=query_post, comment_form=comment_form, blog_comments=blog_comments)
@@ -40,7 +40,7 @@ def new_blog_post():
                         subtitle=new_post_form.subtitle.data,
                         date=datetime.today().strftime('%B %d, %Y'),
                         body=new_post_form.body.data,
-                        author='Jim')
+                        author=current_user)
         db.session.add(new_post)
         db.session.commit()
         return redirect(url_for('blog.show_blog_post', blog_post_id=new_post.id))

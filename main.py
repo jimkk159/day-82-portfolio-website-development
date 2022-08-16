@@ -6,12 +6,12 @@ from datetime import datetime
 import os
 
 # self import
-from .extension import db, migrate
-from .forms import ContactForm
-from .blog import blog_blueprint
-from .user import user_blueprint
-from .portfolio import portfolio_blueprint
-from .SQL.SQL_management import Viewer, User
+from extension import db, migrate
+from forms import ContactForm
+from blog import blog_blueprint
+from user import user_blueprint
+from portfolio import portfolio_blueprint
+from SQL.SQL_management import Viewer, User
 
 app = Flask(__name__)
 
@@ -31,7 +31,7 @@ Bootstrap(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///personal_website.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
-migrate.init_app(app, db)
+migrate.init_app(app, db, render_as_batch=True)
 
 # Login
 login_manager = LoginManager()

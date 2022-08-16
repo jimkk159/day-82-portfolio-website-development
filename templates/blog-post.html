@@ -10,7 +10,7 @@
                     <h1>{{ blog_post.title }}</h1>
                     <h2 class="subheading">{{ blog_post.subtitle }}</h2>
                     <span class="meta">Posted by
-              <a href="#">{{ blog_post.author }}</a>
+              <a href="#">{{ blog_post.author.name }}</a>
               on {{ blog_post.date }}</span>
                 </div>
             </div>
@@ -37,7 +37,7 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 {{ blog_comment.body | safe }}
-                <span class="meta">Posted by<a href="#">{{ blog_comment.author }}</a>on {{ blog_comment.date }}</span>
+                <span class="meta">Posted by<a href="#">{{ blog_comment.author.name }}</a>on {{ blog_comment.date }}</span>
             </div>
         </div>
     </div>
