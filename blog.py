@@ -21,14 +21,14 @@ def blog_index():
 def show_blog_post(blog_post_id):
     query_post = Post.query.get(blog_post_id)
     comment_form = CommentForm()
-    blog_comments = Comment.query.all()
     if comment_form.validate_on_submit():
         new_comment = Comment(date=datetime.today().strftime('%Y-%m-%d %H:%M:%S'),
                               body=comment_form.comment.data,
-                              author=current_user)
+                              author=current_user,
+                              post=query_post)
         db.session.add(new_comment)
         db.session.commit()
-    return render_template('blog-post.html', blog_post=query_post, comment_form=comment_form, blog_comments=blog_comments)
+    return render_template('blog-post.html', blog_post=query_post, comment_form=comment_form)
 
 
 @blog_blueprint.route('/new-blog-post', methods=['GET', 'POST'])

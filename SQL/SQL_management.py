@@ -45,7 +45,7 @@ class Post(db.Model):
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.String(50), nullable=False)
-    body = db.Column(db.Text, unique=True, nullable=False)
+    body = db.Column(db.Text)
 
     # User
     author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
