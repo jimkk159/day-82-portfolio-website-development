@@ -6,12 +6,12 @@ from datetime import datetime
 import os
 
 # self import
-from extension import db, migrate
-from forms import ContactForm
-from blog import blog_blueprint
-from user import user_blueprint
-from portfolio import portfolio_blueprint
-from SQL.SQL_management import Viewer, User
+from .extension import db, migrate
+from .forms import ContactForm
+from .blog import blog_blueprint
+from .user import user_blueprint
+from .portfolio import portfolio_blueprint
+from .SQL.SQL_management import Viewer, User
 
 app = Flask(__name__)
 

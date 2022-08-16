@@ -2,9 +2,9 @@ from datetime import datetime
 from flask import Blueprint, render_template, redirect, url_for
 
 # self import
-from extension import db
-from forms import NewPostForm, CommentForm
-from SQL.SQL_management import Post, Comment
+from .extension import db
+from .forms import NewPostForm, CommentForm
+from .SQL.SQL_management import Post, Comment
 
 blog_blueprint = Blueprint('blog', __name__)
 

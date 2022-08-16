@@ -1,7 +1,8 @@
 from flask_login import UserMixin
+from sqlalchemy.orm import relationship
 
 # self import
-from extension import db
+from ..extension import db
 
 
 class Viewer(db.Model):
@@ -19,6 +20,12 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(50), nullable=False)
     password = db.Column(db.String(50), nullable=False)
 
+    # Post
+    posts = relationship("Post", back_populates="author")
+
+    # Comment
+    comments = relationship("Comment", back_populates="author")
+
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -26,11 +33,24 @@ class Post(db.Model):
     subtitle = db.Column(db.String(250), nullable=False)
     date = db.Column(db.String(50), nullable=False)
     body = db.Column(db.Text, nullable=False)
-    author = db.Column(db.String(250), nullable=False)
+
+    # User
+    author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    author = relationship("User", back_populates="posts")
+
+    # Comment
+    comments = relationship("Comment", back_populates="post")
 
 
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.String(50), nullable=False)
     body = db.Column(db.Text, unique=True, nullable=False)
-    author = db.Column(db.String(250), nullable=False)
+
+    # User
+    author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    author = relationship("User", back_populates="comments")
+
+    # Post
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
+    post = relationship("Post", back_populates="comments")
