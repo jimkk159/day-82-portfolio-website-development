@@ -25,3 +25,10 @@ class ContactForm(FlaskForm):
     phone = StringField("Phone Number")
     message = CKEditorField("Message")
     submit = SubmitField('Submit')
+
+
+class NewPostForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired(), validators.Length(max=100)])
+    subtitle = StringField("Subtitle", validators=[DataRequired(), validators.Length(max=100)])
+    body = CKEditorField("Blog Content")
+    submit = SubmitField('Submit')

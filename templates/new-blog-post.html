@@ -1,0 +1,18 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+<header class="master-head">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                {{ ckeditor.load() }}
+                {{ ckeditor.config(name='body') }}
+                {{ wtf.quick_form(edit_post_form, novalidate=True, button_map={"submit": "primary"}) }}
+            </div>
+        </div>
+    </div>
+</header>
+{% include "footer.html" %}
+{% endblock %}
