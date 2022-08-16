@@ -1,5 +1,6 @@
 from datetime import datetime
 from flask import Blueprint, render_template, redirect, url_for
+from flask_login import login_required
 
 # self import
 from .extension import db
@@ -17,6 +18,7 @@ def blog_index():
 
 
 @blog_blueprint.route('/blog-make-post')
+@login_required
 def blog_make_post():
     return render_template('new-blog-post.html')
 
@@ -36,6 +38,7 @@ def show_blog_post(blog_post_id):
 
 
 @blog_blueprint.route('/new-blog-post', methods=['GET', 'POST'])
+@login_required
 def new_blog_post():
     new_post_form = NewPostForm()
     if new_post_form.validate_on_submit():
@@ -51,6 +54,7 @@ def new_blog_post():
 
 
 @blog_blueprint.route('/delete-blog-post/<int:blog_post_id>')
+@login_required
 def delete_blog_post(blog_post_id):
     query_post = Post.query.get(blog_post_id)
     db.session.delete(query_post)
@@ -59,6 +63,7 @@ def delete_blog_post(blog_post_id):
 
 
 @blog_blueprint.route('/edit-blog-post/<int:edit_post_id>', methods=['GET', 'POST'])
+@login_required
 def edit_blog_post(edit_post_id):
     query_post = Post.query.get(edit_post_id)
     edit_post_form = NewPostForm(title=query_post.title,
