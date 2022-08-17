@@ -9,6 +9,9 @@
         <div class="col-lg-8 col-md-10 mx-auto">
             <h1>{{ user.name }}'s Posts</h1>
         </div>
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <h1>Contact {{ user.name }}: <a href="mailto:{{ user.email }}">{{ user.email }}</a></h1>
+        </div>
         <hr>
         {% for post in user.posts %}
         <div class="col-lg-8 col-md-10 mx-auto">
