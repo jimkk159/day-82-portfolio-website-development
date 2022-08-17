@@ -70,3 +70,10 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('home'))
+
+
+# Personal Site
+@user_blueprint.route('/personal-site/<int:user_id>')
+def personal_site(user_id):
+    query_user = User.query.get(user_id)
+    return render_template('personal-site.html', user=query_user)

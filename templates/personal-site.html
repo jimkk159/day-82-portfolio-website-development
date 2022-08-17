@@ -1,0 +1,22 @@
+{% include "header.html" %}
+<header class="master-head">
+    <div class="container">
+        <h1>Hello, here is {{ user.name }} personal site</h1>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <h1>{{ user.name }}'s Posts</h1>
+        </div>
+        <hr>
+        {% for post in user.posts %}
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <h1><a href="{{ url_for('blog.show_blog_post', blog_post_id=post.id) }}">{{ post.title }}</a></h1>
+            <p>on {{ post.date }}</p>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+</div>
+{% include "footer.html" %}

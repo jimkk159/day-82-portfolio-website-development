@@ -10,7 +10,7 @@
                     <h1>{{ blog_post.title }}</h1>
                     <h2 class="subheading">{{ blog_post.subtitle }}</h2>
                     <span class="meta">Posted by
-              <a href="#">{{ blog_post.author.name }}</a>
+              <a href="{{ url_for('user.personal_site', user_id=blog_post.author.id) }}">{{ blog_post.author.name }}</a>
               on {{ blog_post.date }}</span>
                 </div>
             </div>
@@ -41,7 +41,7 @@
             <div class="col-lg-8 col-md-10 mx-auto">
                 {{ blog_comment.body | safe }}
                 <span class="meta">Posted by<a
-                        href="#">{{ blog_comment.author.name }}</a>on {{ blog_comment.date }}</span>
+                        href="{{ url_for('user.personal_site', user_id=blog_comment.author.id) }}">{{ blog_comment.author.name }}</a>on {{ blog_comment.date }}</span>
                 {% if current_user.is_authenticated and (current_user.id == blog_comment.author.id or current_user.id
                 == 1 ) %}
                 <a href="{{ url_for('blog.delete_comment', comment_id=blog_comment.id) }}"><img

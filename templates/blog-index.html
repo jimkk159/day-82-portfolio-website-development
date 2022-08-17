@@ -14,7 +14,7 @@
                     <h3 class="post-subtitle">{{ blog_post.subtitle }}</h3>
                 </a>
                 <p class="post-meta">Posted by
-                    <a href="#">{{ blog_post.author.name }}</a> on {{ blog_post.date }}
+                    <a href="{{ url_for('user.personal_site', user_id=blog_post.author.id) }}">{{ blog_post.author.name }}</a> on {{ blog_post.date }}
                     {% if current_user.is_authenticated and (current_user.id == blog_post.author.id or current_user.id
                     == 1 ) %}
                     <a href="{{ url_for('blog.delete_blog_post', blog_post_id=blog_post.id) }}"><img
