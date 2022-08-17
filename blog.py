@@ -75,4 +75,4 @@ def edit_blog_post(edit_post_id):
         query_post.body = edit_post_form.body.data
         db.session.commit()
         return redirect(url_for('blog.show_blog_post', blog_post_id=query_post.id))
-    return render_template('new-blog-post.html', edit_post_form=edit_post_form)
+    return render_template('new-blog-post.html', edit_post_form=edit_post_form, is_edit=True)
