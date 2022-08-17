@@ -4,6 +4,7 @@ from flask_login import login_required, current_user
 
 # self import
 from extension import db
+from admin import admin_only
 from forms import NewPostForm, CommentForm
 from SQL.SQL_management import Post, Comment
 
@@ -80,6 +81,7 @@ def edit_blog_post(edit_post_id):
 
 @blog_blueprint.route('/delete-post-comment/<int:comment_id>')
 @login_required
+@admin_only
 def delete_comment(comment_id):
     query_comment = Comment.query.get(comment_id)
     query_post = query_comment.post
