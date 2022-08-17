@@ -25,7 +25,8 @@
             <div class="col-lg-8 col-md-10 mx-auto">
                 {{ blog_post.body | safe }}
             </div>
-            {% if current_user.is_authenticated and ( current_user.id == blog_post.author.id or current_user.id == 1 ) %}
+            {% if current_user.is_authenticated and ( current_user.id == blog_post.author.id or current_user.id == 1 )
+            %}
             <div class="col-lg-8 col-md-10 mx-auto">
                 <a class="btn btn-primary float-right"
                    href="{{ url_for('blog.edit_blog_post', edit_post_id=blog_post.id) }}">Edit</a>
@@ -39,7 +40,13 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 {{ blog_comment.body | safe }}
-                <span class="meta">Posted by<a href="#">{{ blog_comment.author.name }}</a>on {{ blog_comment.date }}</span>
+                <span class="meta">Posted by<a
+                        href="#">{{ blog_comment.author.name }}</a>on {{ blog_comment.date }}</span>
+                {% if current_user.is_authenticated and (current_user.id == blog_comment.author.id or current_user.id
+                == 1 ) %}
+                <a href="{{ url_for('blog.delete_comment', comment_id=blog_comment.id) }}"><img
+                        src="{{ url_for('static',filename='img/cross.png') }}" style="width:1rem"></a>
+                {% endif %}
             </div>
         </div>
     </div>

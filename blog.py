@@ -76,3 +76,13 @@ def edit_blog_post(edit_post_id):
         db.session.commit()
         return redirect(url_for('blog.show_blog_post', blog_post_id=query_post.id))
     return render_template('new-blog-post.html', edit_post_form=edit_post_form, is_edit=True)
+
+
+@blog_blueprint.route('/delete-post-comment/<int:comment_id>')
+@login_required
+def delete_comment(comment_id):
+    query_comment = Comment.query.get(comment_id)
+    query_post = query_comment.post
+    db.session.delete(query_comment)
+    db.session.commit()
+    return redirect(url_for('blog.show_blog_post', blog_post_id=query_post.id))
