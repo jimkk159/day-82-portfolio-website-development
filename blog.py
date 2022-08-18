@@ -6,7 +6,7 @@ from flask_login import login_required, current_user
 from extension import db
 from admin import admin_only
 from forms import NewPostForm, CommentForm
-from SQL.SQL_management import Post, Comment
+from SQL.SQL_management import Post, Comment, Tag
 
 blog_blueprint = Blueprint('blog', __name__)
 
@@ -42,7 +42,10 @@ def new_blog_post():
                         date=datetime.today().strftime('%B %d, %Y'),
                         body=new_post_form.body.data,
                         author=current_user)
+        new_tag = Tag(name=new_post_form.tags.data,
+                      post=new_post)
         db.session.add(new_post)
+        db.session.add(new_tag)
         db.session.commit()
         return redirect(url_for('blog.show_blog_post', blog_post_id=new_post.id))
     return render_template('new-blog-post.html', edit_post_form=new_post_form)

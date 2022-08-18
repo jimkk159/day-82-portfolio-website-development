@@ -41,6 +41,9 @@ class Post(db.Model):
     # Comment
     comments = relationship("Comment", back_populates="post")
 
+    # Tag
+    tags = relationship("Tag", back_populates="post")
+
 
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -54,3 +57,12 @@ class Comment(db.Model):
     # Post
     post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
     post = relationship("Post", back_populates="comments")
+
+
+class Tag(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(300), nullable=False)
+
+    # Post
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
+    post = relationship("Post", back_populates="tags")

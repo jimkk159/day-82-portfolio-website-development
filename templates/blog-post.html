@@ -25,6 +25,13 @@
             <div class="col-lg-8 col-md-10 mx-auto">
                 {{ blog_post.body | safe }}
             </div>
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <p>
+                    {% for tag in blog_post.tags %}
+                    {{ tag.name }}
+                    {% endfor %}
+                </p>
+            </div>
             {% if current_user.is_authenticated and ( current_user.id == blog_post.author.id or current_user.id == 1 )
             %}
             <div class="col-lg-8 col-md-10 mx-auto">
@@ -32,6 +39,7 @@
                    href="{{ url_for('blog.edit_blog_post', edit_post_id=blog_post.id) }}">Edit</a>
             </div>
             {% endif %}
+
         </div>
     </div>
     <hr>

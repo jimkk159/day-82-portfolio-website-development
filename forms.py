@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_ckeditor import CKEditorField
 from wtforms import validators
-from wtforms import StringField, EmailField, SubmitField
+from wtforms import StringField, EmailField, SubmitField, SelectField
 from wtforms.validators import DataRequired
 
 
@@ -31,10 +31,11 @@ class NewPostForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired(), validators.Length(max=100)])
     subtitle = StringField("Subtitle", validators=[DataRequired(), validators.Length(max=100)])
     body = CKEditorField("Blog Content")
+    tags = SelectField('Tag',
+                       choices=[("Portfolio", "portfolio"), ("Movie", "movie"), ("Book", "book"), ("life", "life")])
     submit = SubmitField('Submit')
 
 
 class CommentForm(FlaskForm):
     comment = CKEditorField("Comment", validators=[DataRequired()])
     submit = SubmitField("Submit")
-
