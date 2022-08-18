@@ -1,29 +1,29 @@
 from flask_wtf import FlaskForm
 from flask_ckeditor import CKEditorField
 from wtforms import validators
-from wtforms import StringField, EmailField, SubmitField, SelectField
+from wtforms import StringField, EmailField, PasswordField, SubmitField, SelectField
 from wtforms.validators import DataRequired
 
 
 class LoginForm(FlaskForm):
     email = EmailField('Email', validators=[validators.Email()])
-    password = StringField("Password", validators=[DataRequired()])
+    password = PasswordField("Password", validators=[validators.Length(min=8, max=30)])
     submit = SubmitField('Submit')
 
 
 class RegisterForm(FlaskForm):
     email = EmailField('Email', validators=[validators.Email()])
     name = StringField("Name", validators=[DataRequired()])
-    password = StringField("Password", validators=[validators.Length(min=8, max=30)])
+    password = PasswordField("Password", validators=[validators.Length(min=8, max=30)])
     password_confirm = StringField("Confirm Password", validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 
 class ContactForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
-    email = EmailField("Email Address", validators=[validators.Email()])
-    phone = StringField("Phone Number")
-    message = CKEditorField("Message")
+    name = StringField('Name', validators=[DataRequired()], render_kw={"placeholder": "Name"})
+    email = EmailField("Email Address", validators=[validators.Email()], render_kw={"placeholder": "Email"})
+    phone = StringField("Phone Number", render_kw={"placeholder": "Phone"})
+    message = StringField("Message", render_kw={"placeholder": "Message"})
     submit = SubmitField('Submit')
 
 
