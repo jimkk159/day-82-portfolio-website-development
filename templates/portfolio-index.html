@@ -1,7 +1,32 @@
 {% include "header.html" %}
 <header class="master-head">
     <div class="container">
-        <h1>portfolio</h1>
+        <h1>portfolio index</h1>
     </div>
 </header>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            {% for blog_post in portfolio_posts %}
+            <div class="post-preview">
+                <a href="{{ url_for('blog.show_blog_post', blog_post_id=blog_post.id) }}">
+                    <h2 class="post-title">{{ blog_post.title }}</h2>
+                    <h3 class="post-subtitle">{{ blog_post.subtitle }}</h3>
+                </a>
+                <p class="post-meta">Posted by
+                    <a href="{{ url_for('user.personal_site', user_id=blog_post.author.id) }}">{{ blog_post.author.name }}</a> on {{ blog_post.date }}
+                    {% if current_user.is_authenticated and (current_user.id == blog_post.author.id or current_user.id
+                    == 1 ) %}
+                    <a href="{{ url_for('blog.delete_blog_post', blog_post_id=blog_post.id) }}"><img
+                            src="{{ url_for('static',filename='img/cross.png') }}" style="width:1rem"></a>
+                    {% endif %}
+                </p>
+
+            </div>
+            <hr>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
 {% include "footer.html" %}

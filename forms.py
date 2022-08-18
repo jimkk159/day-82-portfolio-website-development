@@ -32,7 +32,7 @@ class NewPostForm(FlaskForm):
     subtitle = StringField("Subtitle", validators=[DataRequired(), validators.Length(max=100)])
     body = CKEditorField("Blog Content")
     tags = SelectField('Tag',
-                       choices=[("Portfolio", "portfolio"), ("Movie", "movie"), ("Book", "book"), ("life", "life")])
+                       choices=[("portfolio", "Portfolio"), ("movie", "Movie"), ("book", "Book"), ("life", "Life")])
     submit = SubmitField('Submit')
 
 
