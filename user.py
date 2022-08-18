@@ -5,7 +5,7 @@ from flask_login import login_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 
 # self import
-from extension import db
+from extension import db, get_favicon
 from forms import LoginForm, RegisterForm
 from SQL.SQL_management import User
 
@@ -37,7 +37,7 @@ def register():
         db.session.commit()
         login_user(new_user)
         return redirect(url_for('home'))
-    return render_template('register.html', register_form=register_form)
+    return render_template('register.html', favicon=get_favicon(), register_form=register_form)
 
 
 # Login
@@ -61,7 +61,7 @@ def login():
             flash('Password wrong')
             return redirect(url_for('user.login'))
 
-    return render_template('login.html', login_form=login_form)
+    return render_template('login.html', favicon=get_favicon(), login_form=login_form)
 
 
 # Logout
@@ -76,4 +76,4 @@ def logout():
 @user_blueprint.route('/personal-site/<int:user_id>')
 def personal_site(user_id):
     query_user = User.query.get(user_id)
-    return render_template('personal-site.html', user=query_user)
+    return render_template('personal-site.html', favicon=get_favicon(), user=query_user)

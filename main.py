@@ -1,12 +1,12 @@
+import os
 from flask import Flask, render_template
 from flask_login import LoginManager
 from flask_ckeditor import CKEditor
 from flask_bootstrap import Bootstrap
 from datetime import datetime
-import os
 
 # self import
-from extension import db, migrate
+from extension import db, migrate, get_favicon
 from forms import ContactForm
 from blog import blog_blueprint
 from user import user_blueprint
@@ -46,13 +46,13 @@ def load_user(user_id):
 # Home
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', favicon=get_favicon())
 
 
 # About
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about.html', favicon=get_favicon())
 
 
 # Contact
@@ -67,7 +67,7 @@ def contact():
                             message=contact_form.phone.data)
         db.session.add(new_viewer)
         db.session.commit()
-    return render_template('contact.html', contact_form=contact_form)
+    return render_template('contact.html', favicon=get_favicon(), contact_form=contact_form)
 
 
 if __name__ == '__main__':
