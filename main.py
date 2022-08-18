@@ -1,4 +1,5 @@
 import os
+import smtplib
 from flask import Flask, render_template
 from flask_login import LoginManager
 from flask_ckeditor import CKEditor
@@ -12,6 +13,9 @@ from blog import blog_blueprint
 from user import user_blueprint
 from portfolio import portfolio_blueprint
 from SQL.SQL_management import Viewer, User
+
+MY_EMAIL = "jimemail159@gmail.com"
+MY_PASSWORD = "lskvrufrzijxwxpm"
 
 app = Flask(__name__)
 
@@ -64,10 +68,25 @@ def contact():
                             name=contact_form.name.data,
                             email=contact_form.email.data,
                             phone=contact_form.phone.data,
-                            message=contact_form.phone.data)
+                            message=contact_form.message.data)
         db.session.add(new_viewer)
         db.session.commit()
+    send_email(contact_form.name.data, contact_form.email.data, contact_form.phone.data, contact_form.message.data)
     return render_template('contact.html', favicon=get_favicon(), contact_form=contact_form)
+
+
+def send_email(name, email, phone, message):
+    with smtplib.SMTP("smtp.gmail.com") as connection:
+        connection.starttls()
+        connection.login(user=MY_EMAIL, password=MY_PASSWORD)
+        connection.sendmail(from_addr=MY_EMAIL,
+                            to_addrs=MY_EMAIL,
+                            msg=f"Subject:Personal Site New Viewer\n\n"
+                                f"Hello Jim!\n"
+                                f"I am {name}\n"
+                                f"My Email is {email}\n"
+                                f"My Phone is {phone}\n{message} "
+                            )
 
 
 if __name__ == '__main__':
