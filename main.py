@@ -1,5 +1,5 @@
 import os
-# import smtplib
+import smtplib
 from flask import Flask, render_template
 from flask_login import LoginManager
 from flask_ckeditor import CKEditor
@@ -9,21 +9,21 @@ from datetime import datetime
 
 # self import
 from extension import db, migrate, get_favicon
-# from forms import ContactForm
-# from blog import blog_blueprint
-# from user import user_blueprint
-# from portfolio import portfolio_blueprint
-# from SQL.SQL_management import Viewer, User
+from forms import ContactForm
+from blog import blog_blueprint
+from user import user_blueprint
+from portfolio import portfolio_blueprint
+from SQL.SQL_management import Viewer, User
 
 MY_EMAIL = os.getenv('MY_EMAIL')
 MY_PASSWORD = os.getenv('MY_PASSWORD')
 
 app = Flask(__name__)
 
-# # BluePrint
-# app.register_blueprint(blog_blueprint)
-# app.register_blueprint(user_blueprint)
-# app.register_blueprint(portfolio_blueprint)
+# BluePrint
+app.register_blueprint(blog_blueprint)
+app.register_blueprint(user_blueprint)
+app.register_blueprint(portfolio_blueprint)
 
 # CKEditor
 ckeditor = CKEditor(app)
