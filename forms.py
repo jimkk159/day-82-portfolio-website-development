@@ -1,4 +1,3 @@
-import email_validator
 from flask_wtf import FlaskForm
 from flask_ckeditor import CKEditorField
 from wtforms import validators
