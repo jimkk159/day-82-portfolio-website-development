@@ -29,11 +29,11 @@ app.register_blueprint(portfolio_blueprint)
 ckeditor = CKEditor(app)
 
 # WTF Form
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', "sqlite:///personal_website.db")
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 Bootstrap(app)
 
 # SQL
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')  # In Heroku
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', "sqlite:///personal_website.db")  # In Heroku
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///personal_website.db' # In Local
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
