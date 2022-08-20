@@ -10,9 +10,9 @@ from datetime import datetime
 # self import
 from extension import db, migrate, get_favicon
 from forms import ContactForm
-from blog import blog_blueprint
-from user import user_blueprint
-from portfolio import portfolio_blueprint
+# from blog import blog_blueprint
+# from user import user_blueprint
+# from portfolio import portfolio_blueprint
 from SQL.SQL_management import Viewer, User
 
 MY_EMAIL = os.getenv('MY_EMAIL')
