@@ -15,8 +15,8 @@ from user import user_blueprint
 from portfolio import portfolio_blueprint
 from SQL.SQL_management import Viewer, User
 
-MY_EMAIL = os.getenv('MY_EMAIL')
-MY_PASSWORD = os.getenv('MY_PASSWORD')
+# MY_EMAIL = os.getenv('MY_EMAIL')
+# MY_PASSWORD = os.getenv('MY_PASSWORD')
 
 
 app = Flask(__name__)
