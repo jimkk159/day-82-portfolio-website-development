@@ -53,6 +53,7 @@ gravatar = Gravatar(app,
                     use_ssl=False,
                     base_url=None)
 
+db.create_all()
 
 @login_manager.user_loader
 def load_user(user_id):
