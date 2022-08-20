@@ -29,7 +29,7 @@ app.register_blueprint(portfolio_blueprint)
 ckeditor = CKEditor(app)
 
 # WTF Form
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', "sqlite:///personal_website.db")
 Bootstrap(app)
 
 # SQL
