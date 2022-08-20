@@ -10,9 +10,9 @@ from datetime import datetime
 # self import
 from extension import db, migrate, get_favicon
 from forms import ContactForm
-# from blog import blog_blueprint
-# from user import user_blueprint
-# from portfolio import portfolio_blueprint
+from blog import blog_blueprint
+from user import user_blueprint
+from portfolio import portfolio_blueprint
 from SQL.SQL_management import Viewer, User
 
 MY_EMAIL = os.getenv('MY_EMAIL')
@@ -21,9 +21,9 @@ MY_PASSWORD = os.getenv('MY_PASSWORD')
 app = Flask(__name__)
 
 # BluePrint
-# app.register_blueprint(blog_blueprint)
-# app.register_blueprint(user_blueprint)
-# app.register_blueprint(portfolio_blueprint)
+app.register_blueprint(blog_blueprint)
+app.register_blueprint(user_blueprint)
+app.register_blueprint(portfolio_blueprint)
 
 # CKEditor
 ckeditor = CKEditor(app)
@@ -52,9 +52,9 @@ gravatar = Gravatar(app,
                     base_url=None)
 
 
-# @login_manager.user_loader
-# def load_user(user_id):
-#     return User.query.get(user_id)
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
 
 
 # Home
@@ -64,41 +64,41 @@ def home():
     # return render_template('index.html', favicon=get_favicon()), 200
 
 
-# # About
-# @app.route('/about')
-# def about():
-#     return render_template('about.html', favicon=get_favicon()), 200
-#
-#
-# # Contact
-# @app.route('/contact', methods=['GET', 'POST'])
-# def contact():
-#     contact_form = ContactForm()
-#     if contact_form.validate_on_submit():
-#         new_viewer = Viewer(datetime=datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-#                             name=contact_form.name.data,
-#                             email=contact_form.email.data,
-#                             phone=contact_form.phone.data,
-#                             message=contact_form.message.data)
-#         db.session.add(new_viewer)
-#         db.session.commit()
-#         send_email(contact_form.name.data, contact_form.email.data, contact_form.phone.data, contact_form.message.data)
-#     return render_template('contact.html', favicon=get_favicon(), contact_form=contact_form), 200
-#
-#
-# def send_email(name, email, phone, message):
-#     with smtplib.SMTP("smtp.gmail.com") as connection:
-#         connection.starttls()
-#         connection.login(user=MY_EMAIL, password=MY_PASSWORD)
-#         connection.sendmail(from_addr=MY_EMAIL,
-#                             to_addrs=MY_EMAIL,
-#                             msg=f"Subject:Personal Site New Viewer\n\n"
-#                                 f"Hello Jim!\n"
-#                                 f"I am {name}\n"
-#                                 f"My Email: {email}\n"
-#                                 f"My Phone: {phone}\n"
-#                                 f"Message: {message} "
-#                             )
+# About
+@app.route('/about')
+def about():
+    return render_template('about.html', favicon=get_favicon()), 200
+
+
+# Contact
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    contact_form = ContactForm()
+    if contact_form.validate_on_submit():
+        new_viewer = Viewer(datetime=datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                            name=contact_form.name.data,
+                            email=contact_form.email.data,
+                            phone=contact_form.phone.data,
+                            message=contact_form.message.data)
+        db.session.add(new_viewer)
+        db.session.commit()
+        send_email(contact_form.name.data, contact_form.email.data, contact_form.phone.data, contact_form.message.data)
+    return render_template('contact.html', favicon=get_favicon(), contact_form=contact_form), 200
+
+
+def send_email(name, email, phone, message):
+    with smtplib.SMTP("smtp.gmail.com") as connection:
+        connection.starttls()
+        connection.login(user=MY_EMAIL, password=MY_PASSWORD)
+        connection.sendmail(from_addr=MY_EMAIL,
+                            to_addrs=MY_EMAIL,
+                            msg=f"Subject:Personal Site New Viewer\n\n"
+                                f"Hello Jim!\n"
+                                f"I am {name}\n"
+                                f"My Email: {email}\n"
+                                f"My Phone: {phone}\n"
+                                f"Message: {message} "
+                            )
 
 
 if __name__ == '__main__':
