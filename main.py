@@ -17,7 +17,8 @@ from SQL.SQL_management import Viewer, User
 
 # MY_EMAIL = os.getenv('MY_EMAIL')
 # MY_PASSWORD = os.getenv('MY_PASSWORD')
-
+MY_EMAIL = "jimemail159@gmail.com"
+MY_PASSWORD = "lskvrufr:zijxwxpm"
 
 app = Flask(__name__)
 
@@ -61,31 +62,32 @@ def load_user(user_id):
 # Home
 @app.route('/')
 def home():
-    return render_template('index.html', favicon=get_favicon()), 200
+    return "Hello World!"
+    # return render_template('index.html', favicon=get_favicon()), 200
 
 
-# About
-@app.route('/about')
-def about():
-    return render_template('about.html', favicon=get_favicon()), 200
-
-
-# Contact
-@app.route('/contact', methods=['GET', 'POST'])
-def contact():
-    contact_form = ContactForm()
-    if contact_form.validate_on_submit():
-        new_viewer = Viewer(datetime=datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                            name=contact_form.name.data,
-                            email=contact_form.email.data,
-                            phone=contact_form.phone.data,
-                            message=contact_form.message.data)
-        db.session.add(new_viewer)
-        db.session.commit()
-        # send_email(contact_form.name.data, contact_form.email.data, contact_form.phone.data, contact_form.message.data)
-    return render_template('contact.html', favicon=get_favicon(), contact_form=contact_form), 200
-
-
+# # About
+# @app.route('/about')
+# def about():
+#     return render_template('about.html', favicon=get_favicon()), 200
+#
+#
+# # Contact
+# @app.route('/contact', methods=['GET', 'POST'])
+# def contact():
+#     contact_form = ContactForm()
+#     if contact_form.validate_on_submit():
+#         new_viewer = Viewer(datetime=datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+#                             name=contact_form.name.data,
+#                             email=contact_form.email.data,
+#                             phone=contact_form.phone.data,
+#                             message=contact_form.message.data)
+#         db.session.add(new_viewer)
+#         db.session.commit()
+#         send_email(contact_form.name.data, contact_form.email.data, contact_form.phone.data, contact_form.message.data)
+#     return render_template('contact.html', favicon=get_favicon(), contact_form=contact_form), 200
+#
+#
 # def send_email(name, email, phone, message):
 #     with smtplib.SMTP("smtp.gmail.com") as connection:
 #         connection.starttls()
