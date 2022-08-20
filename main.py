@@ -82,23 +82,23 @@ def contact():
                             message=contact_form.message.data)
         db.session.add(new_viewer)
         db.session.commit()
-        send_email(contact_form.name.data, contact_form.email.data, contact_form.phone.data, contact_form.message.data)
+        # send_email(contact_form.name.data, contact_form.email.data, contact_form.phone.data, contact_form.message.data)
     return render_template('contact.html', favicon=get_favicon(), contact_form=contact_form), 200
 
 
-def send_email(name, email, phone, message):
-    with smtplib.SMTP("smtp.gmail.com") as connection:
-        connection.starttls()
-        connection.login(user=MY_EMAIL, password=MY_PASSWORD)
-        connection.sendmail(from_addr=MY_EMAIL,
-                            to_addrs=MY_EMAIL,
-                            msg=f"Subject:Personal Site New Viewer\n\n"
-                                f"Hello Jim!\n"
-                                f"I am {name}\n"
-                                f"My Email: {email}\n"
-                                f"My Phone: {phone}\n"
-                                f"Message: {message} "
-                            )
+# def send_email(name, email, phone, message):
+#     with smtplib.SMTP("smtp.gmail.com") as connection:
+#         connection.starttls()
+#         connection.login(user=MY_EMAIL, password=MY_PASSWORD)
+#         connection.sendmail(from_addr=MY_EMAIL,
+#                             to_addrs=MY_EMAIL,
+#                             msg=f"Subject:Personal Site New Viewer\n\n"
+#                                 f"Hello Jim!\n"
+#                                 f"I am {name}\n"
+#                                 f"My Email: {email}\n"
+#                                 f"My Phone: {phone}\n"
+#                                 f"Message: {message} "
+#                             )
 
 
 if __name__ == '__main__':
