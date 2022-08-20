@@ -6,7 +6,7 @@ from wtforms.validators import DataRequired
 
 
 class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[validators.Email()])
+    email = StringField('Email', validators=[DataRequired()])
     password = PasswordField("Password", validators=[validators.Length(min=8, max=30)])
     submit = SubmitField('Submit')
 
@@ -21,7 +21,7 @@ class RegisterForm(FlaskForm):
 
 class ContactForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()], render_kw={"placeholder": "Name"})
-    email = StringField("Email Address", validators=[validators.Email()], render_kw={"placeholder": "Email"})
+    email = StringField("Email Address", validators=[DataRequired()], render_kw={"placeholder": "Email"})
     phone = StringField("Phone Number", render_kw={"placeholder": "Phone"})
     message = TextAreaField("Message", render_kw={"placeholder": "Message"})
     submit = SubmitField('Submit')
