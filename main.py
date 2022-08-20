@@ -39,6 +39,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL').replace('postg
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 migrate.init_app(app, db, render_as_batch=True)
+db.create_all()
 
 # Login
 login_manager = LoginManager()
