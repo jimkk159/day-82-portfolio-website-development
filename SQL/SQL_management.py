@@ -6,6 +6,8 @@ from extension import db
 
 
 class Viewer(db.Model):
+
+    __tablename__ = "viewer"
     id = db.Column(db.Integer, primary_key=True)
     datetime = db.Column(db.String(50), unique=True, nullable=False)
     name = db.Column(db.String(50), nullable=False)
@@ -15,6 +17,8 @@ class Viewer(db.Model):
 
 
 class User(UserMixin, db.Model):
+
+    __tablename__ = "user"
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(50), nullable=False)
     name = db.Column(db.String(50), nullable=False)
@@ -28,6 +32,8 @@ class User(UserMixin, db.Model):
 
 
 class Post(db.Model):
+
+    __tablename__ = "post"
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(250), unique=True, nullable=False)
     subtitle = db.Column(db.String(250), nullable=False)
@@ -46,6 +52,8 @@ class Post(db.Model):
 
 
 class Comment(db.Model):
+
+    __tablename__ = "comment"
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.String(50), nullable=False)
     body = db.Column(db.String(300))
@@ -60,6 +68,8 @@ class Comment(db.Model):
 
 
 class Tag(db.Model):
+
+    __tablename__ = "tag"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(300), nullable=False)
 
