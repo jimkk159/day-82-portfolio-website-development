@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_ckeditor import CKEditorField
 from wtforms import validators
-from wtforms import StringField, PasswordField, SubmitField, TelField, TextAreaField, SelectField
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField, SelectField
 from wtforms.validators import DataRequired
 
 
@@ -22,7 +22,7 @@ class RegisterForm(FlaskForm):
 class ContactForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()], render_kw={"placeholder": "Name"})
     email = StringField("Email Address", validators=[validators.Email()], render_kw={"placeholder": "Email"})
-    phone = TelField("Phone Number", render_kw={"placeholder": "Phone"})
+    phone = StringField("Phone Number", render_kw={"placeholder": "Phone"})
     message = TextAreaField("Message", render_kw={"placeholder": "Message"})
     submit = SubmitField('Submit')
 
