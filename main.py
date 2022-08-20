@@ -15,10 +15,10 @@ from extension import db, migrate, get_favicon
 # from portfolio import portfolio_blueprint
 # from SQL.SQL_management import Viewer, User
 
-# MY_EMAIL = os.getenv('MY_EMAIL')
-# MY_PASSWORD = os.getenv('MY_PASSWORD')
-MY_EMAIL = "jimemail159@gmail.com"
-MY_PASSWORD = "lskvrufr:zijxwxpm"
+MY_EMAIL = os.getenv('MY_EMAIL')
+MY_PASSWORD = os.getenv('MY_PASSWORD')
+# MY_EMAIL = "jimemail159@gmail.com"
+# MY_PASSWORD = "lskvrufr:zijxwxpm"
 
 app = Flask(__name__)
 
