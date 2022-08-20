@@ -29,11 +29,12 @@ app.register_blueprint(portfolio_blueprint)
 ckeditor = CKEditor(app)
 
 # WTF Form
-app.config['SECRET_KEY'] = os.urandom(32)
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 Bootstrap(app)
 
 # SQL
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///personal_website.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')  # In Heroku
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///personal_website.db' # In Local
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 migrate.init_app(app, db, render_as_batch=True)
@@ -60,7 +61,6 @@ def load_user(user_id):
 # Home
 @app.route('/')
 def home():
-
     return render_template('index.html', favicon=get_favicon()), 200
 
 
