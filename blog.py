@@ -15,7 +15,7 @@ blog_blueprint = Blueprint('blog', __name__)
 @blog_blueprint.route('/blog-index', methods=['GET', 'POST'])
 def blog_index():
     blog_posts = Post.query.all()
-    return render_template('blog-index.html', favicon=get_favicon(), blog_posts=blog_posts)
+    return render_template('blog-index.html', favicon=get_favicon(), blog_posts=blog_posts), 200
 
 
 @blog_blueprint.route('/blog-post/<int:blog_post_id>', methods=['GET', 'POST'])
@@ -29,7 +29,7 @@ def show_blog_post(blog_post_id):
                               post=query_post)
         db.session.add(new_comment)
         db.session.commit()
-    return render_template('blog-post.html', favicon=get_favicon(), blog_post=query_post, comment_form=comment_form)
+    return render_template('blog-post.html', favicon=get_favicon(), blog_post=query_post, comment_form=comment_form), 200
 
 
 @blog_blueprint.route('/new-blog-post', methods=['GET', 'POST'])
@@ -48,10 +48,10 @@ def new_blog_post():
         db.session.add(new_tag)
         db.session.commit()
         return redirect(url_for('blog.show_blog_post', blog_post_id=new_post.id))
-    return render_template('new-blog-post.html', favicon=get_favicon(), edit_post_form=new_post_form)
+    return render_template('new-blog-post.html', favicon=get_favicon(), edit_post_form=new_post_form), 200
 
 
-@blog_blueprint.route('/delete-blog-post/<int:blog_post_id>')
+@blog_blueprint.route('/delete-blog-post/<int:blog_post_id>', methods=['GET', 'DELETE'])
 @login_required
 def delete_blog_post(blog_post_id):
     query_post = Post.query.get(blog_post_id)
@@ -63,7 +63,7 @@ def delete_blog_post(blog_post_id):
 @blog_blueprint.route('/blog-make-post')
 @login_required
 def blog_make_post():
-    return render_template('new-blog-post.html')
+    return render_template('new-blog-post.html'), 200
 
 
 @blog_blueprint.route('/edit-blog-post/<int:edit_post_id>', methods=['GET', 'POST'])
@@ -79,10 +79,10 @@ def edit_blog_post(edit_post_id):
         query_post.body = edit_post_form.body.data
         db.session.commit()
         return redirect(url_for('blog.show_blog_post', blog_post_id=query_post.id))
-    return render_template('new-blog-post.html', favicon=get_favicon(), edit_post_form=edit_post_form, is_edit=True)
+    return render_template('new-blog-post.html', favicon=get_favicon(), edit_post_form=edit_post_form, is_edit=True), 200
 
 
-@blog_blueprint.route('/delete-post-comment/<int:comment_id>')
+@blog_blueprint.route('/delete-post-comment/<int:comment_id>', methods=['GET', 'DELETE'])
 @login_required
 @admin_only
 def delete_comment(comment_id):

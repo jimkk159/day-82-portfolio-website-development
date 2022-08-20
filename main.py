@@ -50,13 +50,13 @@ def load_user(user_id):
 # Home
 @app.route('/')
 def home():
-    return render_template('index.html', favicon=get_favicon())
+    return render_template('index.html', favicon=get_favicon()), 200
 
 
 # About
 @app.route('/about')
 def about():
-    return render_template('about.html', favicon=get_favicon())
+    return render_template('about.html', favicon=get_favicon()), 200
 
 
 # Contact
@@ -72,7 +72,7 @@ def contact():
         db.session.add(new_viewer)
         db.session.commit()
     send_email(contact_form.name.data, contact_form.email.data, contact_form.phone.data, contact_form.message.data)
-    return render_template('contact.html', favicon=get_favicon(), contact_form=contact_form)
+    return render_template('contact.html', favicon=get_favicon(), contact_form=contact_form), 200
 
 
 def send_email(name, email, phone, message):
