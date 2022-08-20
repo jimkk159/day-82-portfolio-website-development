@@ -33,13 +33,17 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 Bootstrap(app)
 
 # SQL
-pre_DATABASE_URL = os.getenv('DATABASE_URL')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL').replace('postgres://', 'postgresql://')  # In Heroku
+pre_DATABASE_URL = os.getenv('DATABASE_URL', 'sqlite:///personal_website.db')
+if 'postgres://' in pre_DATABASE_URL:
+    pre_DATABASE_URL=pre_DATABASE_URL.replace('postgres://', 'postgresql://')
+
+app.config['SQLALCHEMY_DATABASE_URI'] = pre_DATABASE_URL  # In Heroku
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///personal_website.db'  # In Local
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db.create_all()
 db.init_app(app)
+with app.app_context():
+    db.create_all()
 migrate.init_app(app, db, render_as_batch=True)
 
 
