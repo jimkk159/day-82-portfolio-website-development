@@ -17,8 +17,6 @@ from extension import db, migrate, get_favicon
 
 MY_EMAIL = os.getenv('MY_EMAIL')
 MY_PASSWORD = os.getenv('MY_PASSWORD')
-# MY_EMAIL = "jimemail159@gmail.com"
-# MY_PASSWORD = "lskvrufr:zijxwxpm"
 
 app = Flask(__name__)
 
@@ -62,7 +60,7 @@ gravatar = Gravatar(app,
 # Home
 @app.route('/')
 def home():
-    return "Hello World!"
+    return f"Hello World! {MY_EMAIL} {MY_PASSWORD}"
     # return render_template('index.html', favicon=get_favicon()), 200
 
 
