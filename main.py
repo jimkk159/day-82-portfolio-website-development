@@ -15,8 +15,9 @@ from user import user_blueprint
 from portfolio import portfolio_blueprint
 from SQL.SQL_management import Viewer, User
 
-MY_EMAIL = "jimemail159@gmail.com"
-MY_PASSWORD = "lskvrufrzijxwxpm"
+MY_EMAIL = os.getenv('MY_EMAIL')
+MY_PASSWORD = os.getenv('MY_PASSWORD')
+
 
 app = Flask(__name__)
 
@@ -42,7 +43,6 @@ migrate.init_app(app, db, render_as_batch=True)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-
 gravatar = Gravatar(app,
                     size=100,
                     rating='g',
@@ -51,6 +51,7 @@ gravatar = Gravatar(app,
                     force_lower=False,
                     use_ssl=False,
                     base_url=None)
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -81,7 +82,7 @@ def contact():
                             message=contact_form.message.data)
         db.session.add(new_viewer)
         db.session.commit()
-    send_email(contact_form.name.data, contact_form.email.data, contact_form.phone.data, contact_form.message.data)
+        send_email(contact_form.name.data, contact_form.email.data, contact_form.phone.data, contact_form.message.data)
     return render_template('contact.html', favicon=get_favicon(), contact_form=contact_form), 200
 
 
@@ -94,8 +95,9 @@ def send_email(name, email, phone, message):
                             msg=f"Subject:Personal Site New Viewer\n\n"
                                 f"Hello Jim!\n"
                                 f"I am {name}\n"
-                                f"My Email is {email}\n"
-                                f"My Phone is {phone}\n{message} "
+                                f"My Email: {email}\n"
+                                f"My Phone: {phone}\n"
+                                f"Message: {message} "
                             )
 
 
