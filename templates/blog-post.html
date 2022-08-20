@@ -46,6 +46,9 @@
     {% for blog_comment in blog_post.comments %}
     <div class="container">
         <div class="row">
+            <div class="commenterImage">
+                <img src="{{ blog_comment.author.email | gravatar }}"/>
+            </div>
             <div class="col-lg-8 col-md-10 mx-auto">
                 {{ blog_comment.body | safe }}
                 <span class="meta">Posted by<a

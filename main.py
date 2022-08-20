@@ -4,6 +4,7 @@ from flask import Flask, render_template
 from flask_login import LoginManager
 from flask_ckeditor import CKEditor
 from flask_bootstrap import Bootstrap
+from flask_gravatar import Gravatar
 from datetime import datetime
 
 # self import
@@ -41,6 +42,15 @@ migrate.init_app(app, db, render_as_batch=True)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+
+gravatar = Gravatar(app,
+                    size=100,
+                    rating='g',
+                    default='retro',
+                    force_default=False,
+                    force_lower=False,
+                    use_ssl=False,
+                    base_url=None)
 
 @login_manager.user_loader
 def load_user(user_id):
