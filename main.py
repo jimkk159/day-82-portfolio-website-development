@@ -21,9 +21,9 @@ MY_PASSWORD = os.getenv('MY_PASSWORD')
 app = Flask(__name__)
 
 # BluePrint
-app.register_blueprint(blog_blueprint)
-app.register_blueprint(user_blueprint)
-app.register_blueprint(portfolio_blueprint)
+# app.register_blueprint(blog_blueprint)
+# app.register_blueprint(user_blueprint)
+# app.register_blueprint(portfolio_blueprint)
 
 # CKEditor
 ckeditor = CKEditor(app)
