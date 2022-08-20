@@ -34,7 +34,7 @@ Bootstrap(app)
 
 # SQL
 pre_DATABASE_URL = os.getenv('DATABASE_URL')
-app.config['SQLALCHEMY_DATABASE_URI'] = pre_DATABASE_URL.replace('postgres://', 'postgresql://')  # In Heroku
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL').replace('postgres://', 'postgresql://')  # In Heroku
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///personal_website.db'  # In Local
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
@@ -53,7 +53,7 @@ gravatar = Gravatar(app,
                     use_ssl=False,
                     base_url=None)
 
-db.create_all()
+# db.create_all()
 
 @login_manager.user_loader
 def load_user(user_id):
