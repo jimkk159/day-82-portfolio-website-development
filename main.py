@@ -60,8 +60,8 @@ def load_user(user_id):
 # Home
 @app.route('/')
 def home():
-    return f"Hello World! {MY_EMAIL} {MY_PASSWORD}"
-    # return render_template('index.html', favicon=get_favicon()), 200
+
+    return render_template('index.html', favicon=get_favicon()), 200
 
 
 # About
