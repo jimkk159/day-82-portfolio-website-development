@@ -18,80 +18,81 @@ from SQL.SQL_management import Viewer, User
 MY_EMAIL = os.getenv('MY_EMAIL')
 MY_PASSWORD = os.getenv('MY_PASSWORD')
 
-app = Flask(__name__)
-
-# BluePrint
-app.register_blueprint(blog_blueprint)
-app.register_blueprint(user_blueprint)
-app.register_blueprint(portfolio_blueprint)
-
-# CKEditor
-ckeditor = CKEditor(app)
-
-# WTF Form
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-Bootstrap(app)
-
 # SQL
+# Database from Heroku or Local
 pre_DATABASE_URL = os.getenv('DATABASE_URL', 'sqlite:///personal_website.db')
-if 'postgres://' in pre_DATABASE_URL:
-    pre_DATABASE_URL=pre_DATABASE_URL.replace('postgres://', 'postgresql://')
-
-app.config['SQLALCHEMY_DATABASE_URI'] = pre_DATABASE_URL  # In Heroku
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///personal_website.db'  # In Local
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db.init_app(app)
-with app.app_context():
-    db.create_all()
-migrate.init_app(app, db, render_as_batch=True)
+if 'postgres://' in pre_DATABASE_URL:  # Fix the Database from Heroku
+    pre_DATABASE_URL = pre_DATABASE_URL.replace('postgres://', 'postgresql://')
 
 
-# Login
-login_manager = LoginManager()
-login_manager.init_app(app)
+def create_app():
+    app = Flask(__name__)
 
-gravatar = Gravatar(app,
-                    size=100,
-                    rating='g',
-                    default='retro',
-                    force_default=False,
-                    force_lower=False,
-                    use_ssl=False,
-                    base_url=None)
+    # BluePrint
+    app.register_blueprint(blog_blueprint)
+    app.register_blueprint(user_blueprint)
+    app.register_blueprint(portfolio_blueprint)
 
+    # CKEditor
+    ckeditor = CKEditor(app)
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(user_id)
+    # WTF Form
+    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+    Bootstrap(app)
 
+    app.config['SQLALCHEMY_DATABASE_URI'] = pre_DATABASE_URL  # In Heroku
+    # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///personal_website.db'  # In Local
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Home
-@app.route('/')
-def home():
-    return render_template('index.html', favicon=get_favicon()), 200
+    db.init_app(app)
+    with app.app_context():
+        db.create_all()
+    migrate.init_app(app, db, render_as_batch=True)
 
+    # Login
+    login_manager = LoginManager()
+    login_manager.init_app(app)
 
-# About
-@app.route('/about')
-def about():
-    return render_template('about.html', favicon=get_favicon()), 200
+    gravatar = Gravatar(app,
+                        size=100,
+                        rating='g',
+                        default='retro',
+                        force_default=False,
+                        force_lower=False,
+                        use_ssl=False,
+                        base_url=None)
 
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(user_id)
 
-# Contact
-@app.route('/contact', methods=['GET', 'POST'])
-def contact():
-    contact_form = ContactForm()
-    if contact_form.validate_on_submit():
-        new_viewer = Viewer(datetime=datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                            name=contact_form.name.data,
-                            email=contact_form.email.data,
-                            phone=contact_form.phone.data,
-                            message=contact_form.message.data)
-        db.session.add(new_viewer)
-        db.session.commit()
-        send_email(contact_form.name.data, contact_form.email.data, contact_form.phone.data, contact_form.message.data)
-    return render_template('contact.html', favicon=get_favicon(), contact_form=contact_form), 200
+    # Home
+    @app.route('/')
+    def home():
+        return render_template('index.html', favicon=get_favicon()), 200
+
+    # About
+    @app.route('/about')
+    def about():
+        return render_template('about.html', favicon=get_favicon()), 200
+
+    # Contact
+    @app.route('/contact', methods=['GET', 'POST'])
+    def contact():
+        contact_form = ContactForm()
+        if contact_form.validate_on_submit():
+            new_viewer = Viewer(datetime=datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                                name=contact_form.name.data,
+                                email=contact_form.email.data,
+                                phone=contact_form.phone.data,
+                                message=contact_form.message.data)
+            db.session.add(new_viewer)
+            db.session.commit()
+            send_email(contact_form.name.data, contact_form.email.data, contact_form.phone.data,
+                       contact_form.message.data)
+        return render_template('contact.html', favicon=get_favicon(), contact_form=contact_form), 200
+
+    return app
 
 
 def send_email(name, email, phone, message):
@@ -108,6 +109,8 @@ def send_email(name, email, phone, message):
                                 f"Message: {message} "
                             )
 
+
+app = create_app()
 
 if __name__ == '__main__':
     app.run(debug=True)
