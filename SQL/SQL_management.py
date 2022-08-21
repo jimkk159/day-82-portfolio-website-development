@@ -7,7 +7,7 @@ from extension import db
 
 # SQL
 # Database from Heroku or Local
-pre_DATABASE_URL = os.getenv('DATABASE_URL', 'sqlite:///personal_website.db')
+pre_DATABASE_URL = os.getenv('DATABASE_URL')
 if 'postgres://' in pre_DATABASE_URL:  # Fix the Database from Heroku
     pre_DATABASE_URL = pre_DATABASE_URL.replace('postgres://', 'postgresql://')
 
