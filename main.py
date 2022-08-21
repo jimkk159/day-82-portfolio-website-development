@@ -41,8 +41,8 @@ def create_app():
     setup_db(app)
 
     with app.app_context():
-        db.create_all()
-        # db_drop_and_create()
+        # db.create_all()
+        db_drop_and_create()
 
     migrate.init_app(app, db, render_as_batch=True)
 

@@ -20,7 +20,7 @@ def setup_db(app):
 
 
 def db_drop_and_create():
-    if 'postgres://' not in pre_DATABASE_URL:
+    if 'postgres' not in pre_DATABASE_URL:
         db.drop_all()
     db.create_all()
 
