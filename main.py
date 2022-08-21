@@ -13,16 +13,10 @@ from forms import ContactForm
 from blog import blog_blueprint
 from user import user_blueprint
 from portfolio import portfolio_blueprint
-from SQL.SQL_management import Viewer, User
+from SQL.SQL_management import setup_db, db_drop_and_create, Viewer, User
 
 MY_EMAIL = os.getenv('MY_EMAIL')
 MY_PASSWORD = os.getenv('MY_PASSWORD')
-
-# SQL
-# Database from Heroku or Local
-pre_DATABASE_URL = os.getenv('DATABASE_URL', 'sqlite:///personal_website.db')
-if 'postgres://' in pre_DATABASE_URL:  # Fix the Database from Heroku
-    pre_DATABASE_URL = pre_DATABASE_URL.replace('postgres://', 'postgresql://')
 
 
 def create_app():
@@ -40,13 +34,11 @@ def create_app():
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
     Bootstrap(app)
 
-    app.config['SQLALCHEMY_DATABASE_URI'] = pre_DATABASE_URL  # In Heroku
-    # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///personal_website.db'  # In Local
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    setup_db(app)
 
-    db.init_app(app)
     with app.app_context():
-        db.create_all()
+        db_drop_and_create()
+
     migrate.init_app(app, db, render_as_batch=True)
 
     # Login
