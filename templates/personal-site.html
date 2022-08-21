@@ -10,6 +10,11 @@
             <h1>{{ user.name }}'s Posts</h1>
         </div>
         <div class="col-lg-8 col-md-10 mx-auto">
+            <a href="{{ url_for('user.personal_site', user_id=user.id) }}">
+            <img src="{{ user.email | gravatar }}" />
+            </a>
+        </div>
+        <div class="col-lg-8 col-md-10 mx-auto">
             <h1>Contact {{ user.name }}: <a href="mailto:{{ user.email }}">{{ user.email }}</a></h1>
         </div>
         <hr>

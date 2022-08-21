@@ -47,7 +47,7 @@
     <div class="container">
         <div class="row">
             <div class="commenterImage">
-                <img src="{{ blog_comment.author.email | gravatar }}"/>
+                <a href="{{ url_for('user.personal_site', user_id=blog_comment.author.id) }}"><img src="{{ blog_comment.author.email | gravatar }}" /></a>
             </div>
             <div class="col-lg-8 col-md-10 mx-auto">
                 {{ blog_comment.body | safe }}
