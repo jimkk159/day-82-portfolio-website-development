@@ -21,12 +21,15 @@ body{
    text-align: center;
    padding: 3% 15% 1%;
 }
+
 header.master-head{
     background-color:black;
 }
+
 header.master-head{
     padding: 200px 0 250px;
 }
+
 header.master-head .head-comment{
   text-align: center;
   color:#CFD2CF;
@@ -41,18 +44,22 @@ header.master-head .head-img {
    width: 400px;
    height: 340px;
 }
+
 header.master-head .head-img img{
     position: absolute;
     border: solid 2px #CCC;
     margin: 10px 0 0 -70px;
     max-width: 100%;
 }
+
 header.master-head .head-comment h1{
   font-size: 80px;
 }
+
 header.master-head .head-comment span{
   font-size: 30px;
 }
+
 /* Social Icon */
 .social-icon{
   margin: 20px 10px;
@@ -69,6 +76,7 @@ h1, h2, h3, h4, h5, h6 {
 .white-section{
     background-color: #2C394B
 }
+
 hr{
   border-top: 6px white;
   background-color:black;
@@ -76,6 +84,7 @@ hr{
   margin: 0;
   height: 3px;
 }
+
 .introduce-section img,
 .story-section img,
 .skill-section iframe,
