@@ -1,5 +1,5 @@
-from pathlib import Path
 import random
+from pathlib import Path
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
