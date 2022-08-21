@@ -1,6 +1,7 @@
 import os
 import smtplib
 from flask import Flask, render_template
+from flask_cors import CORS
 from flask_login import LoginManager
 from flask_ckeditor import CKEditor
 from flask_bootstrap import Bootstrap
@@ -26,6 +27,9 @@ def create_app():
     app.register_blueprint(blog_blueprint)
     app.register_blueprint(user_blueprint)
     app.register_blueprint(portfolio_blueprint)
+
+    # CROS
+    CORS(app)
 
     # CKEditor
     ckeditor = CKEditor(app)
