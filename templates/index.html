@@ -1,24 +1,31 @@
 {% include "header.html" %}
 
 <!-- Page Header -->
+<div style="background-image: url({{ url_for('static', filename='img/rohit-tandon-9wg5jCEPBsw-unsplash.jpg') }});">
 <header class="master-head">
-    <div class="container">
-        <div class="d-flex flex-row justify-content-around">
-            <div class="d-flex flex-column justify-content-center align-items-center">
-                <div class="head-comment">
-                    <h1>Hello, Stranger</h1>
-                    <span>Welcome to Jim's Personal Website</span>
-                </div>
-            </div>
-            <div class="d-flex flex-column justify-content-center align-items-center">
-                <div class="head-img">
-                    <img src="{{ url_for('static',filename='img/ralph-ravi-kayden-1R9wCG99PMI-unsplash.jpg') }}">What is
-                    the symbol of life for you?</img>
+
+        <div>
+            <div class="container">
+                <div class="d-flex flex-row justify-content-around">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <div class="head-comment">
+                            <h1>Hello, Stranger</h1>
+                            <span>Welcome to Jim's Personal Website</span>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <div class="head-img">
+                            <img src="{{ url_for('static',filename='img/ralph-ravi-kayden-1R9wCG99PMI-unsplash.jpg') }}">What
+                            is
+                            the symbol of life for you?</img>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
 </header>
+    </div>
 <hr>
 <section class="black-section introduce-section">
     <div class="body-container">

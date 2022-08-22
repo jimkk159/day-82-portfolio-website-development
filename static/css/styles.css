@@ -3,25 +3,6 @@
   background-color: #222831;
 }
 
-/* Body */
-body{
-    font-size:20px
-    background-color: dark
-}
-
-/* Body Container*/
-.body-container {
-   text-align: center;
-   padding: 7% 10%;
-}
-
-/* Foot Container */
-.foot-container {
-   background-color: #D65A31;
-   text-align: center;
-   padding: 3% 15% 1%;
-}
-
 header.master-head{
     background-color:black;
 }
@@ -60,6 +41,25 @@ header.master-head .head-comment span{
   font-size: 30px;
 }
 
+/* Body */
+body{
+    font-size: 20px
+    background-color: dark
+}
+
+/* Body Container*/
+.body-container {
+   text-align: center;
+   padding: 7% 10%;
+}
+
+/* Foot Container */
+.foot-container {
+   background-color: #D65A31;
+   text-align: center;
+   padding: 3% 15% 1%;
+}
+
 /* Social Icon */
 .social-icon{
   margin: 20px 10px;
@@ -91,4 +91,34 @@ hr{
 .personal-section img{
     width: 400px;
    height: 340px;
+}
+
+.navbar-brand{
+    font-family: 'Rubik Distressed', cursive;
+    font-size:40px;
+}
+
+.foot-container .fa-lg{
+    font-size:25px;
+}
+
+.copyright{
+    font-weight:700;
+    font-size:5px;
+}
+.navbar-nav{
+  font-size:30px;
+  font-family: 'Lalezar', cursive;
+}
+
+.nav-link{
+}
+
+.navbar{
+     padding-top: 3px;
+    padding-bottom: 3px;
+}
+.master-head {
+    background-image: url({{ url_for('static', filename='img/mountain.jpg') }});
+
 }
