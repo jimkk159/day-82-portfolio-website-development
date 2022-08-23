@@ -63,8 +63,13 @@ def create_app():
     def load_user(user_id):
         return User.query.get(user_id)
 
-    # Home
+    # Greet
     @app.route('/')
+    def greet():
+        return render_template('greet.html', favicon=get_favicon()), 200
+
+    # Home
+    @app.route('/home')
     def home():
         return render_template('index.html', favicon=get_favicon()), 200
 

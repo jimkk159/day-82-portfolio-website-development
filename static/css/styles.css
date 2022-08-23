@@ -2,21 +2,60 @@
 .head-container {
   background-color: #222831;
 }
-
 header.master-head{
-    background-color:black;
+    height: 100vh;
 }
 
-header.master-head{
+header .shadow-background-img{
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    filter: grayscale(60%);
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
+header .shadow{
+    background-color: black;
+    opacity: 0.7;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
+
+header.master-head .container{
+    text-align: center;
+    height: 100vh;
     padding: 200px 0 250px;
+    position: relative;
+}
+
+header.master-head img{
+    margin: -300px 0 -220px 20px;
+    text-align: center;
+    transform:scaleX(-1);
+    position: relative;
+    width: 70%;
+    z-index: 1;
+}
+header.master-head .boat-img{
+
+}
+.turn-white{
+    filter: brightness(0) invert(1);
 }
 
 header.master-head .head-comment{
-  text-align: center;
   color:#CFD2CF;
-  background-color:green;
-}
 
+  margin: 0px 0px 0px -20px;
+  text-align: center;
+}
+header.master-head .head-comment .greet{
+    font-family: 'Silkscreen', cursive;
+}
+header.master-head .head-comment .greet-words{
+    font-family: 'Silkscreen', cursive;
+}
 header.master-head .head-img {
    text-align: center;
    position: relative;
@@ -106,19 +145,76 @@ hr{
     font-weight:700;
     font-size:5px;
 }
+
+
 .navbar-nav{
   font-size:30px;
   font-family: 'Lalezar', cursive;
 }
 
-.nav-link{
-}
-
 .navbar{
      padding-top: 3px;
     padding-bottom: 3px;
+    background-color: #5D5161;
 }
+
 .master-head {
     background-image: url({{ url_for('static', filename='img/mountain.jpg') }});
 
+}
+
+
+#mainNav {
+transition: background-color 0.2s;
+/* Force Hardware Acceleration in WebKit */
+transform: translate3d(0, 0, 0);
+}
+
+
+#mainNav {
+border-bottom: 1px solid transparent;
+background: #1b1b1b;
+}
+#mainNav .navbar-brand {
+color: #FC6A03;
+font-style: italic;
+padding: 7px 20px;
+transform: rotate(-5deg);
+}
+#mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
+color: #DD571C;
+}
+#mainNav .navbar-nav > li.nav-item > a {
+padding: 7px 15px;
+color: #fff;
+}
+#mainNav .navbar-nav > li.nav-item > a:focus, #mainNav .navbar-nav > li.nav-item > a:hover {
+color: rgba(255, 255, 255, 0.7);
+}
+
+
+
+#mainNav.is-fixed {
+/* when the user scrolls down, we hide the header right above the viewport */
+position: fixed;
+top: -82px;
+transition: transform 0.2s;
+border-bottom: 1px solid #373737;
+background-color: #1b1b1b;;
+}
+#mainNav.is-fixed .navbar-brand {
+color: #FC6A03;
+}
+#mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
+color: #DD571C;
+}
+#mainNav.is-fixed .navbar-nav > li.nav-item > a {
+color: #fff;
+}
+#mainNav.is-fixed .navbar-nav > li.nav-item > a:focus, #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
+color: rgba(255, 255, 255, 0.7);
+}
+#mainNav.is-visible {
+/* if the user changes the scrolling direction, we show the header */
+transform: translate3d(0, 100%, 0);
 }
