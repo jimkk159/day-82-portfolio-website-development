@@ -1,0 +1,22 @@
+{% include "header.html" %}
+
+<!-- Page Header -->
+
+<header class="master-head">
+    <div class="shadow-background-img"
+         style="background-image: url({{ url_for('static', filename='img/mountain.jpg') }});">
+    </div>
+    <div class="shadow">
+    </div>
+    <div class="container">
+        <div class="boat-img turn-white">
+            <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='img/sailing boat logo.png') }}"></a>
+        </div>
+        <div class="head-comment">
+            <h1 class="greet">Hi Stranger</h1>
+            <span class="greet-words">Welcome to Jim's Personal Site</span>
+        </div>
+    </div>
+</header>
+</body>
+</html>
