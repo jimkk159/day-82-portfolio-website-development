@@ -31,7 +31,7 @@ header.master-head .container{
 }
 
 header.master-head img{
-    margin: -300px 0 -220px 20px;
+    margin: -300px 0 -250px 20px;
     text-align: center;
     transform:scaleX(-1);
     position: relative;
@@ -39,7 +39,9 @@ header.master-head img{
     z-index: 1;
 }
 header.master-head .boat-img{
-
+  animation-name: boat-moving;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
 }
 .turn-white{
     filter: brightness(0) invert(1);
@@ -260,4 +262,18 @@ color: rgba(255, 255, 255, 0.7);
 #mainNav.is-visible {
 /* if the user changes the scrolling direction, we show the header */
 transform: translate3d(0, 100%, 0);
+}
+
+/* The animation code */
+@keyframes boat-moving {
+  0%   {top:0px;}
+  10%   {top:-1.64px;}
+  20%   {top:-2.71px;}
+  30%   {top:-4.48px;}
+  40%   {top:-7.38px;}
+  50%   {top:-5.21px;}
+  60%   {top:-3.74px;}
+  70%   {top:-2.69px;}
+  80%   {top:-1.93px;}
+  100%  {top:-1.39px; }
 }
