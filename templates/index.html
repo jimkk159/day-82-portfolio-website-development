@@ -2,147 +2,230 @@
 
 <!-- Page Header -->
 
-<header class="master-head">
-    <div class="shadow-background-img"
-         style="background-image: url({{ url_for('static', filename='img/mountain.jpg') }});">
-    </div>
-    <div class="shadow">
-    </div>
-    <div class="container">
-        <div class="boat-img turn-white">
-            <img src="{{ url_for('static', filename='img/sailing boat logo.png') }}">
-        </div>
-        <div class="head-comment">
-            <h1 class="greet">Hi Stranger</h1>
-            <span class="greet-words">Welcome to Jim's Personal Site</span>
-        </div>
-    </div>
-</header>
+<hr>
+<section class="black-section introduce-section">
+    <div class="container-fluid">
+        <!-- Feature Icon -->
+        <div class="d-flex flex-row justify-content-center">
+            <div class="d-flex flex-column justify-content-center align-items-center feature-content">
+                <a role="button" data-bs-target="#icon-carousel" data-bs-slide-to="0" class="active"
+                   aria-current="true" aria-label="Slide 1"><i
+                        class="fa-solid fa-5x  fa-lightbulb feature-icon"></i>
+                </a>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center feature-content">
+                <a role="button" data-bs-target="#icon-carousel" data-bs-slide-to="1" aria-label="Slide 2"><i
+                        class="fa-solid fa-5x fa-user-large feature-icon"></i></a>
 
-<hr>
-<section class="black-section introduce-section">
-    <div class="d-flex flex-row justify-content-around">
-        <div class="d-flex flex-column justify-content-center align-items-center">
-            <div class="head-comment">
-                <h1>Hello, Stranger</h1>
-                <span>Welcome to Jim's Personal Website</span>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center feature-content">
+                <a role="button" data-bs-target="#icon-carousel" data-bs-slide-to="2"
+                   aria-label="Slide 3"><i class="fa-solid fa-5x fa-book feature-icon"></i></a>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center feature-content">
+                <a role="button" data-bs-target="#icon-carousel" data-bs-slide-to="3"
+                   aria-label="Slide 4"><i class="fa-solid fa-5x fa-flask-vial feature-icon"></i></a>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center feature-content">
+                <a role="button" data-bs-target="#icon-carousel" data-bs-slide-to="4"
+                   aria-label="Slide 5"><i class="fa-brands fa-5x fa-sketch feature-icon"></i></a>
             </div>
         </div>
-        <div class="d-flex flex-column justify-content-center align-items-center">
-            <div class="head-img">
-                <img src="{{ url_for('static',filename='img/ralph-ravi-kayden-1R9wCG99PMI-unsplash.jpg') }}">What
-                is
-                the symbol of life for you?</img>
+
+        <!-- Carousel -->
+        <div class="d-flex flex-row justify-content-center">
+            <div id="icon-carousel" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#icon-carousel" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#icon-carousel" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#icon-carousel" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#icon-carousel" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#icon-carousel" data-bs-slide-to="4"
+                            aria-label="Slide 5"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="icon-carousel-item">
+                            <div class="d-flex flex-row justify-content-center">
+                                <div class="d-flex flex-column align-items-center">
+                                    <div class="body-comment">
+                                        <h1>Introduce</h1>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                            eiusmod
+                                            tempor
+                                            incididunt ut
+                                            labore et dolore
+                                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                            ullamco
+                                            laboris
+                                            nisi ut aliquip
+                                            ex ea
+                                            commodo consequat. Duis aute irure dolor in reprehenderit in
+                                            voluptate velit
+                                            esse
+                                            cillum dolore
+                                            eu fugiat
+                                            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                                            in
+                                            culpa qui
+                                            officia
+                                            deserunt mollit
+                                            anim id est laborum.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column align-items-center p-4">
+                                    <div class="introduce-web-img">
+                                        <img src="{{url_for('static',filename='img/T-rex.png')}}">T-rex is
+                                        saying Hello
+                                        to
+                                        you!!</img>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="icon-carousel-item">
+                            <div class="d-flex flex-row justify-content-center">
+                                <div class="d-flex flex-column align-items-center p-4">
+                                    <div class="introduce-self-img">
+                                        <img src="{{url_for('static',filename='img/Engineer.jpg')}}">Trust
+                                        Me!</img>
+                                        <!--<a href='https://www.freepik.com/vectors/engineers-day'>Engineers day vector created by freepik - www.freepik.com</a>-->
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column align-items-center">
+                                    <div class="body-comment">
+                                        <h1>Who am I?</h1>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                            eiusmod
+                                            tempor
+                                            incididunt ut
+                                            labore et dolore
+                                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                            ullamco
+                                            laboris
+                                            nisi ut aliquip
+                                            ex ea
+                                            commodo consequat. Duis aute irure dolor in reprehenderit in
+                                            voluptate velit
+                                            esse cillum dolore
+                                            eu fugiat
+                                            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                                            in
+                                            culpa
+                                            qui officia
+                                            deserunt mollit
+                                            anim id est laborum.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="icon-carousel-item">
+                            <div class="d-flex flex-row justify-content-center">
+                                <div class="d-flex flex-column align-items-center p-4">
+                                    <div class="story-img">
+                                        <img src="{{url_for('static',filename='img/afraid.gif')}}">Everyone is
+                                        afraid</img>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column align-items-center">
+                                    <div class="body-comment">
+                                        <h1>Story</h1>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                            eiusmod
+                                            tempor
+                                            incididunt ut
+                                            labore et dolore
+                                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                            ullamco
+                                            laboris
+                                            nisi ut aliquip
+                                            ex ea
+                                            commodo consequat. Duis aute irure dolor in reprehenderit in
+                                            voluptate velit
+                                            esse cillum dolore
+                                            eu fugiat
+                                            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                                            in
+                                            culpa
+                                            qui officia
+                                            deserunt mollit
+                                            anim id est laborum.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="icon-carousel-item">
+                            <div class="d-flex flex-row justify-content-center">
+                                <div class="d-flex flex-column align-items-center p-4">
+                                    <div class="skill-img">
+                                        <img src="{{url_for('static',filename='img/giphy.gif')}}">Signal in,
+                                        Signal
+                                        out</img>
+                                        <!--<p><a href="https://giphy.com/gifs/Pentanet-wireless-fixed-nbn-SA5IWJfBbNCgLpqKjl">Signal in, Signalout</a></p>-->
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column align-items-center">
+                                    <div class="body-comment">
+                                        <h1>Skill</h1>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                            eiusmod
+                                            tempor
+                                            incididunt
+                                            ut
+                                            labore et dolore
+                                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                            ullamco
+                                            laboris
+                                            nisi ut
+                                            aliquip
+                                            ex ea
+                                            commodo consequat. Duis aute irure dolor in reprehenderit in
+                                            voluptate velit
+                                            esse
+                                            cillum
+                                            dolore
+                                            eu fugiat
+                                            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                                            in
+                                            culpa
+                                            qui
+                                            officia
+                                            deserunt mollit
+                                            anim id est laborum.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex flex-row justify-content-center">
+                            <div class="icon-carousel-item">
+                                <div class="d-flex flex-column align-items-center">
+                                    <p>Habit</p>
+                                </div>
+                                <div class="d-flex flex-column align-items-center">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 <hr>
-<section class="black-section introduce-section">
-    <div class="body-container">
-        <div class="d-flex flex-row justify-content-around">
-            <div class="d-flex flex-column justify-content-center align-items-center">
-                <div class="body-comment">
-                    <h1>Introduce</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                        ex ea
-                        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                        eu fugiat
-                        nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                        deserunt mollit
-                        anim id est laborum.</p>
-                </div>
-            </div>
-            <div class="d-flex flex-column justify-content-end align-items-center">
-                <div class="introduce-img">
-                    <img src="{{url_for('static',filename='img/T-rex.png')}}">T-rex is saying Hello to you!!</img>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<hr>
-<section class="black-section story-section">
-    <div class="body-container">
-        <div class="d-flex flex-row justify-content-around">
-            <div class="d-flex flex-column justify-content-center align-items-center">
-                <div class="story-img">
-                    <img src="{{url_for('static',filename='img/afraid.gif')}}">Everyone is afraid</img>
-                </div>
-            </div>
-            <div class="d-flex flex-column justify-content-center align-items-center">
-                <div class="body-comment">
-                    <h1>Story</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                        ex ea
-                        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                        eu fugiat
-                        nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                        deserunt mollit
-                        anim id est laborum.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<hr>
-<section class="black-section skill-section">
-    <div class="body-container">
-        <div class="d-flex flex-row justify-content-around">
-            <div class="d-flex flex-column justify-content-center align-items-center">
-                <div class="body-comment">
-                    <h1>Skill</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                        ex ea
-                        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                        eu fugiat
-                        nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                        deserunt mollit
-                        anim id est laborum.</p>
-                </div>
-            </div>
-            <div class="d-flex flex-column justify-content-center align-items-center">
-                <div class="skill-img">
-                    <img src="{{url_for('static',filename='img/giphy.gif')}}">Signal in, Signal
-                    out</img>
-                    <!--<p><a href="https://giphy.com/gifs/Pentanet-wireless-fixed-nbn-SA5IWJfBbNCgLpqKjl">Signal in, Signalout</a></p>-->
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<hr>
-<section class="black-section personal-section">
-    <div class="body-container">
-        <div class="d-flex flex-row justify-content-around">
-            <div class="d-flex flex-column justify-content-center align-items-center">
-                <div class="engineer-img">
-                    <img src="{{url_for('static',filename='img/Engineer.jpg')}}">Trust Me!</img>
-                    <!--<a href='https://www.freepik.com/vectors/engineers-day'>Engineers day vector created by freepik - www.freepik.com</a>-->
-                </div>
-            </div>
-            <div class="d-flex flex-column justify-content-center align-items-center">
-                <div class="body-comment">
-                    <h1>What I am?</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                        ex ea
-                        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                        eu fugiat
-                        nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                        deserunt mollit
-                        anim id est laborum.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 {% include "footer.html" %}
