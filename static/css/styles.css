@@ -38,27 +38,31 @@ header.master-head img{
     width: 70%;
     z-index: 1;
 }
+
 header.master-head .boat-img{
   animation-name: boat-moving;
   animation-duration: 6s;
   animation-iteration-count: infinite;
 }
+
 .turn-white{
     filter: brightness(0) invert(1);
 }
 
 header.master-head .head-comment{
   color:#CFD2CF;
-
   margin: 0px 0px 0px -20px;
   text-align: center;
 }
+
 header.master-head .head-comment .greet{
     font-family: 'Silkscreen', cursive;
 }
+
 header.master-head .head-comment .greet-words{
     font-family: 'Silkscreen', cursive;
 }
+
 header.master-head .head-img {
    text-align: center;
    position: relative;
@@ -142,41 +146,71 @@ hr{
 .introduce-section .feature-content{
   padding:5%;
 }
+
 .introduce-section .feature-icon{
   color: #FFF;
   padding: 1rem;
 }
+
 .introduce-section .feature-icon:hover{
   color: #FF4c68;
 }
+
 #icon-carousel .icon-carousel-item{
     padding: 0% 0% 5%;
 }
+
 #icon-carousel .icon-carousel-item p{
     color:white;
 }
+.motto-section{
+    width: 100%;
+    height: 50vh;
+}
+
+.motto-section .motto-background-img{
+    max-height:50%;
+    padding-top: 8%;
+}
+
+.motto-section .motto-background-img img{
+    background-repeat: no-repeat;
+    filter: grayscale(60%);
+
+    position: absolute;
+}
+
 .introduce-section #icon-carousel{
     max-width: 100%;
     height: 500px;
     padding: 0 5%;
 }
+
 .introduce-section .icon-carousel-item .body-comment h1{
     text-align:center;
 }
+
+.introduce-section .icon-carousel-item .img-content{
+    max-width: 400px;
+}
+
 .introduce-section .icon-carousel-item .body-comment p{
+    max-width: 600px;
+    max-height: 800px;
     text-align:justify;
 }
+
 .introduce-web-img, .introduce-self-img, .story-img, .skill-img{
 
     text-align:center;
 }
-.introduce-web-img, .story-img{
 
-}
+
 .introduce-section .icon-carousel-item .flex-column{
     margin:0 0%;
 
 }
+
 .navbar-brand{
     font-family: 'Rubik Distressed', cursive;
     font-size:40px;

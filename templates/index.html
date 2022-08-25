@@ -3,6 +3,13 @@
 <!-- Page Header -->
 
 <hr>
+<section class="black-section motto-section">
+    <div class="container">
+        <div class="motto-background-img">
+            <img src="{{ url_for('static', filename='img/Portrait_of_J._D._Rockefeller.jpg') }}">
+        </div>
+    </div>
+</section>
 <section class="black-section introduce-section">
     <div class="container-fluid">
         <!-- Feature Icon -->
@@ -79,7 +86,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex flex-column align-items-center p-4">
-                                    <div class="introduce-web-img">
+                                    <div class="img-content introduce-web-img">
                                         <img src="{{url_for('static',filename='img/T-rex.png')}}">T-rex is
                                         saying Hello
                                         to
@@ -93,7 +100,7 @@
                         <div class="icon-carousel-item">
                             <div class="d-flex flex-row justify-content-center">
                                 <div class="d-flex flex-column align-items-center p-4">
-                                    <div class="introduce-self-img">
+                                    <div class="img-content introduce-self-img">
                                         <img src="{{url_for('static',filename='img/Engineer.jpg')}}">Trust
                                         Me!</img>
                                         <!--<a href='https://www.freepik.com/vectors/engineers-day'>Engineers day vector created by freepik - www.freepik.com</a>-->
@@ -132,7 +139,7 @@
                         <div class="icon-carousel-item">
                             <div class="d-flex flex-row justify-content-center">
                                 <div class="d-flex flex-column align-items-center p-4">
-                                    <div class="story-img">
+                                    <div class="img-content story-img">
                                         <img src="{{url_for('static',filename='img/afraid.gif')}}">Everyone is
                                         afraid</img>
                                     </div>
@@ -168,8 +175,8 @@
                     <div class="carousel-item">
                         <div class="icon-carousel-item">
                             <div class="d-flex flex-row justify-content-center">
-                                <div class="d-flex flex-column align-items-center p-4">
-                                    <div class="skill-img">
+                                <div class="d-flex flex-column align-items-center p-4 img-content">
+                                    <div class="img-content skill-img">
                                         <img src="{{url_for('static',filename='img/giphy.gif')}}">Signal in,
                                         Signal
                                         out</img>
@@ -217,6 +224,9 @@
                                     <p>Habit</p>
                                 </div>
                                 <div class="d-flex flex-column align-items-center">
+                                    <div class="img-content">
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
