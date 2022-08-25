@@ -4,9 +4,13 @@
 
 <hr>
 <section class="black-section motto-section">
-    <div class="container">
+    <div class="container-fluid">
         <div class="motto-background-img">
-            <img src="{{ url_for('static', filename='img/Portrait_of_J._D._Rockefeller.jpg') }}">
+            <div class="d-flex flex-row hide-img shadow">
+                <div class="d-flex flex-column">
+                    <img src="{{ url_for('static', filename='img/Portrait_of_J._D._Rockefeller.jpg') }}">
+                </div>
+            </div>
         </div>
     </div>
 </section>

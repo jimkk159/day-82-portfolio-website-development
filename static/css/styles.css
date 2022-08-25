@@ -41,12 +41,9 @@ header.master-head img{
 
 header.master-head .boat-img{
   animation-name: boat-moving;
-  animation-duration: 6s;
+  animation-duration: 24s;
   animation-iteration-count: infinite;
-}
-
-.turn-white{
-    filter: brightness(0) invert(1);
+  animation-timing-function: ease-in-out;
 }
 
 header.master-head .head-comment{
@@ -163,22 +160,6 @@ hr{
 #icon-carousel .icon-carousel-item p{
     color:white;
 }
-.motto-section{
-    width: 100%;
-    height: 50vh;
-}
-
-.motto-section .motto-background-img{
-    max-height:50%;
-    padding-top: 8%;
-}
-
-.motto-section .motto-background-img img{
-    background-repeat: no-repeat;
-    filter: grayscale(60%);
-
-    position: absolute;
-}
 
 .introduce-section #icon-carousel{
     max-width: 100%;
@@ -294,20 +275,49 @@ color: #fff;
 color: rgba(255, 255, 255, 0.7);
 }
 #mainNav.is-visible {
+
 /* if the user changes the scrolling direction, we show the header */
 transform: translate3d(0, 100%, 0);
 }
 
 /* The animation code */
 @keyframes boat-moving {
-  0%   {top:0px;}
-  10%   {top:-1.64px;}
-  20%   {top:-2.71px;}
-  30%   {top:-4.48px;}
-  40%   {top:-7.38px;}
-  50%   {top:-5.21px;}
-  60%   {top:-3.74px;}
-  70%   {top:-2.69px;}
-  80%   {top:-1.93px;}
-  100%  {top:-1.39px; }
+  0%   {transform: translate(-10px, 10px) rotate(-4deg) scaleX(-1);}
+  25%   {transform: translate(0, 0px) scaleX(-1);}
+  50%   {transform: translate(-10px, 10px) rotate(4deg) scaleX(-1);}
+  75%   {transform: translate(0, 0px) scaleX(-1);}
+  100%  {transform: translate(-10px, 10px) rotate(-4deg) scaleX(-1);}
+}
+
+/* Change color */
+.turn-white{
+    filter: brightness(0) invert(1);
+}
+
+/* Motto */
+.motto-section .container-fluid{
+    height: 100vh;
+    padding: 7% 10%;
+    position: relative;
+}
+
+.motto-section .motto-background-img{
+    height:100%;
+    position: relative;
+}
+.motto-section .hide-img{
+    height:100%;
+    margin: 8% 0;
+    overflow: hidden;
+    position: relative;
+}
+.motto-section .motto-background-img img{
+    background-repeat: no-repeat;
+    filter:sepia(100%);
+    width:30%;
+    position: absolute;
+}
+.motto-section .shadow{
+    background-color: black;
+    opacity: 0.5;
 }
