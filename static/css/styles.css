@@ -113,7 +113,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .black-section{
-    background-color: black
+    background-color: black;
+    color: #FFF;
 }
 
 .white-section{
@@ -360,4 +361,72 @@ font-style: italic;
 .motto-text .quote{
 font-size: 40px;
 font-family: 'Explora', cursive;
+}
+
+/* About Section */
+.about-section{
+text-align: center;
+}
+.about-section .container{
+    padding: 10% 10%;
+}
+.about-section p{
+text-align: justify;
+}
+
+/* Contact Section */
+.contact-section{
+text-align: center;
+}
+.contact-section .container{
+    padding: 10% 10%;
+}
+.contact-section .form-group{
+text-align: left;
+}
+
+/* Register Section */
+.register-section{
+text-align: center;
+}
+.register-section .container{
+    padding: 10% 10%;
+}
+.register-section .form-group{
+text-align: left;
+}
+
+/* Login Section */
+.login-section{
+text-align: center;
+}
+.login-section .container{
+    padding: 10% 10%;
+}
+.login-section .form-group{
+text-align: left;
+}
+
+/* Portfolio Section */
+.portfolio-index-section{
+text-align: center;
+}
+.portfolio-index-section .container{
+    padding: 10% 10%;
+}
+
+/* Blog Index Section */
+.blog-index-section{
+text-align: center;
+}
+.blog-index-section .container{
+    padding: 10% 10%;
+}
+
+/* Blog Post Section */
+.blog-post-section{
+text-align: center;
+}
+.blog-post-section .container{
+    padding: 10% 10%;
 }

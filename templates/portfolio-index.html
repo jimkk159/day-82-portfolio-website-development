@@ -1,14 +1,13 @@
 {% include "header.html" %}
 
-<header class="master-head">
+<section class="black-section portfolio-index-section">
     <div class="container">
         <h1>portfolio index</h1>
     </div>
-</header>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            {% if portfolio_posts %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                {% if portfolio_posts %}
                 {% for blog_post in portfolio_posts %}
                 <div class="post-preview">
                     <a href="{{ url_for('blog.show_blog_post', blog_post_id=blog_post.id) }}">
@@ -16,8 +15,10 @@
                         <h3 class="post-subtitle">{{ blog_post.subtitle }}</h3>
                     </a>
                     <p class="post-meta">Posted by
-                        <a href="{{ url_for('user.personal_site', user_id=blog_post.author.id) }}">{{ blog_post.author.name }}</a> on {{ blog_post.date }}
-                        {% if current_user.is_authenticated and (current_user.id == blog_post.author.id or current_user.id
+                        <a href="{{ url_for('user.personal_site', user_id=blog_post.author.id) }}">{{
+                            blog_post.author.name }}</a> on {{ blog_post.date }}
+                        {% if current_user.is_authenticated and (current_user.id == blog_post.author.id or
+                        current_user.id
                         == 1 ) %}
                         <a href="{{ url_for('blog.delete_blog_post', blog_post_id=blog_post.id) }}"><img
                                 src="{{ url_for('static',filename='img/cross.png') }}" style="width:1rem"></a>
@@ -27,9 +28,10 @@
                 </div>
                 <hr>
                 {% endfor %}
-            {% endif %}
+                {% endif %}
+            </div>
         </div>
     </div>
-</div>
+</section>
 
 {% include "footer.html" %}

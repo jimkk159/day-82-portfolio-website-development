@@ -2,13 +2,13 @@
 
 {% block content %}
 {% include "header.html" %}
-<header class="master-head">
+<section class="black-section contact-section">
     <div class="container">
-        <h1>contact</h1>
+        <h1>Contact</h1>
         {{ ckeditor.load() }}
         {{ ckeditor.config(name='message') }}
         {{ wtf.quick_form(contact_form, novalidate=True, button_map={"submit": "primary"}) }}
     </div>
-</header>
+</section>
 {% include "footer.html" %}
 {% endblock %}
