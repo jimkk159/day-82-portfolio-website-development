@@ -35,7 +35,7 @@ def create_app():
     ckeditor = CKEditor(app)
 
     # WTF Form
-    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', "Jim's Secret key")
     Bootstrap(app)
 
     setup_db(app)

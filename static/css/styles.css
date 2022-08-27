@@ -138,6 +138,8 @@ hr{
 
 .introduce-section .container-fluid{
     padding: 7% 13%;
+    border-style: solid;
+    border-color: green;
 }
 
 .introduce-section .feature-content{
@@ -168,19 +170,21 @@ hr{
 }
 
 .introduce-section .icon-carousel-item .body-comment h1{
+    font-family: 'Aboreto', cursive;
+    font-size: 50px;
     text-align:center;
 }
 
-.introduce-section .icon-carousel-item .img-content{
-    max-width: 400px;
-}
-
 .introduce-section .icon-carousel-item .body-comment p{
+    font-size: 18px;
     max-width: 600px;
     max-height: 800px;
     text-align:justify;
 }
 
+.introduce-section .icon-carousel-item .img-content{
+    max-width: 400px;
+}
 .introduce-web-img, .introduce-self-img, .story-img, .skill-img{
 
     text-align:center;
@@ -188,10 +192,24 @@ hr{
 
 
 .introduce-section .icon-carousel-item .flex-column{
-    margin:0 0%;
+    margin:0 0;
 
 }
-
+.introduce-section .introduce-title{
+    color: #FF9551;
+}
+.introduce-section .self-introduce-title{
+    color: #42855B;
+}
+.introduce-section .story-title{
+    color: #E3242B;
+}
+.introduce-section .skill-title{
+    color: #6FEDD6;
+}
+.introduce-section .habbit-title{
+    color: #EE6983;
+}
 .navbar-brand{
     font-family: 'Rubik Distressed', cursive;
     font-size:40px;
@@ -296,28 +314,50 @@ transform: translate3d(0, 100%, 0);
 
 /* Motto */
 .motto-section .container-fluid{
-    height: 100vh;
-    padding: 7% 10%;
+    height: 550px;
+    padding: 7% 5% 7% 10%;
+    position: relative;
+    border-style: solid;
+    border-color: red;
+}
+.motto-section .flex-row{
+    border-style: solid;
+    border-color: yellow;
+    height: 500px;
+    padding: 5% 0 3%;
     position: relative;
 }
-
 .motto-section .motto-background-img{
-    height:100%;
     position: relative;
+    border-style: solid;
+    border-color: blue;
 }
 .motto-section .hide-img{
-    height:100%;
-    margin: 8% 0;
     overflow: hidden;
-    position: relative;
 }
 .motto-section .motto-background-img img{
     background-repeat: no-repeat;
     filter:sepia(100%);
-    width:30%;
+    max-height:450px;
     position: absolute;
 }
 .motto-section .shadow{
     background-color: black;
     opacity: 0.5;
+}
+.motto-text{
+    color:white;
+    text-align:justify;
+    width:65%;
+}
+.motto-text .author{
+font-size: 30px;
+font-weight: 700;
+font-family: 'Lora', serif;
+font-style: italic;
+}
+
+.motto-text .quote{
+font-size: 40px;
+font-family: 'Explora', cursive;
 }
