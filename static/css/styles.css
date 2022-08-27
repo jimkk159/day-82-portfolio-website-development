@@ -315,32 +315,36 @@ transform: translate3d(0, 100%, 0);
 
 /* Motto */
 .motto-section .container-fluid{
-    height: 550px;
+    height: 80vh;
     padding: 7% 5% 7% 10%;
     position: relative;
     border-style: solid;
     border-color: red;
+
+}
+
+.motto-section .motto-background-img{
+    border-style: solid;
+    border-color: blue;
+    height: 100%;
+    position: relative;
+    width: 100%;
 }
 .motto-section .flex-row{
     border-style: solid;
     border-color: yellow;
-    height: 500px;
-    padding: 5% 0 3%;
+    height: 100%;
     position: relative;
+    width: 100%;
 }
-.motto-section .motto-background-img{
-    position: relative;
-    border-style: solid;
-    border-color: blue;
-}
+
 .motto-section .hide-img{
     overflow: hidden;
 }
 .motto-section .motto-background-img img{
     background-repeat: no-repeat;
     filter:sepia(100%);
-    max-height:450px;
-    position: absolute;
+    max-height:100%;
 }
 .motto-section .shadow{
     background-color: black;
