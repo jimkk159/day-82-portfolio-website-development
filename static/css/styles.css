@@ -138,13 +138,9 @@ hr{
 }
 
 .introduce-section .container-fluid{
-    padding: 7% 13%;
     border-style: solid;
     border-color: green;
-}
-
-.introduce-section .feature-content{
-  padding:5%;
+    padding: 3% 13% 5%;
 }
 
 .introduce-section .feature-icon{
@@ -315,8 +311,8 @@ transform: translate3d(0, 100%, 0);
 
 /* Motto */
 .motto-section .container-fluid{
-    height: 80vh;
-    padding: 7% 5% 7% 10%;
+    height: 100vh;
+    padding: 10% 5% 3% 10%;
     position: relative;
     border-style: solid;
     border-color: red;
@@ -353,13 +349,14 @@ transform: translate3d(0, 100%, 0);
 .motto-text{
     color:white;
     text-align:justify;
-    width:65%;
+    width:70%;
 }
 .motto-text .author{
 font-size: 30px;
 font-weight: 700;
 font-family: 'Lora', serif;
 font-style: italic;
+text-align:right;
 }
 
 .motto-text .quote{
@@ -370,6 +367,9 @@ font-family: 'Explora', cursive;
 /* About Section */
 .about-section{
 text-align: center;
+}
+.about-section h1{
+    font-family: 'Aboreto', cursive;
 }
 .about-section .container{
     padding: 10% 10%;
@@ -383,37 +383,95 @@ text-align: justify;
 text-align: center;
 }
 .contact-section .container{
-    padding: 10% 10%;
+    padding: 10% 10% 7%;
+    text-align: center;
+}
+.contact-section .form{
+    display:inline-block;
+    width: 60%;
+}
+.contact-section h1{
+    font-size: 50px;
+    font-family: 'Aboreto', cursive;
 }
 .contact-section .form-group{
-text-align: left;
+    text-align: left;
+    padding:1%;
 }
+.contact-section label{
+    font-family: Georgia, serif;
+    font-size:30px;
+    padding-bottom:1%;
+}
+.contact-section .btn{
+    font-family: Georgia, serif;
+    font-size:20px;
+    margin-top: 4%;
 
+}
 /* Register Section */
 .register-section{
 text-align: center;
 }
+.register-section .form{
+    display:inline-block;
+    width: 60%;
+}
+.register-section h1{
+    font-family: 'Aboreto', cursive;
+}
 .register-section .container{
-    padding: 10% 10%;
+    padding: 10% 10% 7%;
 }
 .register-section .form-group{
-text-align: left;
+    text-align: left;
+    padding:1%;
+}
+.register-section label{
+    font-family: Georgia, serif;
+    font-size:30px;
+    padding-bottom:1%;
+}
+.register-section .btn{
+    font-family: Georgia, serif;
+    font-size:20px;
+    margin-top: 2%;
 }
 
 /* Login Section */
 .login-section{
 text-align: center;
 }
+.login-section .form{
+    display:inline-block;
+    width: 60%;
+}
+.login-section h1{
+    font-family: 'Aboreto', cursive;
+}
 .login-section .container{
-    padding: 10% 10%;
+    padding: 10% 10% 7%;
 }
 .login-section .form-group{
-text-align: left;
+    text-align: left;
+    padding:1%;
 }
-
+.login-section label{
+    font-family: Georgia, serif;
+    font-size:30px;
+    padding-bottom:1%;
+}
+.login-section .btn{
+    font-family: Georgia, serif;
+    font-size:20px;
+    margin-top: 2%;
+}
 /* Portfolio Section */
 .portfolio-index-section{
 text-align: center;
+}
+.portfolio-index-section h1{
+    font-family: 'Aboreto', cursive;
 }
 .portfolio-index-section .container{
     padding: 10% 10%;
@@ -422,6 +480,9 @@ text-align: center;
 /* Blog Index Section */
 .blog-index-section{
 text-align: center;
+}
+.blog-index-section h1{
+    font-family: 'Aboreto', cursive;
 }
 .blog-index-section .container{
     padding: 10% 10%;
