@@ -490,6 +490,70 @@ text-align: center;
 .blog-post-section{
 text-align: center;
 }
-.blog-post-section .container{
-    padding: 10% 10%;
+.blog-post-section .title-container{
+    padding: 10% 10% 0%;
+}
+.blog-post-section .meta{
+    text-align:right;
+    padding:5% 10% 0 5%;
+}
+.blog-post-section article{
+    padding: 5% 10% 2%;
+}
+.blog-post-section .blog-body{
+    width:100%;
+}
+.blog-post-section .blog-body pre{
+    font-family: Georgia, serif;
+    font-size:20px;
+    text-align:justify;
+
+    word-wrap: break-word;
+}
+.blog-post-section .tags{
+    font-family: Georgia, serif;
+    font-size:20px;
+}
+.blog-post-section .btn{
+    font-family: Georgia, serif;
+    font-size:20px;
+}
+.blog-post-section .tags{
+    font-family: Georgia, serif;
+    font-size:20px;
+}
+.edit-comment{
+    font-family: Georgia, serif;
+    font-size:20px;
+}
+/* New Post Section */
+.new-blog-section{
+text-align: center;
+}
+.new-blog-section .form{
+    display:inline-block;
+    width: 100%;
+}
+.new-blog-section h1{
+    font-family: 'Aboreto', cursive;
+}
+.new-blog-section .container{
+    padding: 10% 10% 7%;
+}
+.new-blog-section .form-group{
+    text-align: left;
+    padding:1%;
+}
+.new-blog-section label{
+    font-family: Georgia, serif;
+    font-size:20px;
+    padding-bottom:1%;
+}
+.new-blog-section .btn{
+    font-family: Georgia, serif;
+    font-size:20px;
+    margin-top: 2%;
+}
+.new-blog-section .form-control option, .new-blog-section .form-control{
+    font-family: Georgia, serif;
 }

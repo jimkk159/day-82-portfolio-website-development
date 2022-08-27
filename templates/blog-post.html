@@ -3,16 +3,19 @@
 <!-- Page Header -->
 <section class="black-section blog-post-section">
     <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <div class="post-heading">
-                    <h1>{{ blog_post.title }}</h1>
-                    <h2 class="subheading">{{ blog_post.subtitle }}</h2>
-                    <span class="meta">Posted by
-              <a href="{{ url_for('user.personal_site', user_id=blog_post.author.id) }}">{{ blog_post.author.name }}</a>
-              on {{ blog_post.date }}</span>
-                </div>
+    <div class="title-container">
+        <div class="post-heading">
+            <div class="d-flex flex-row justify-content-center">
+                <h1>{{ blog_post.title }}</h1>
+            </div>
+            <div class="d-flex flex-row justify-content-center">
+                <h2 class="subheading">{{ blog_post.subtitle }}</h2>
+            </div>
+            <div class="d-flex flex-row justify-content-end">
+                       <span class="meta" style="text-align:right;">Posted by
+                           <a href="{{ url_for('user.personal_site', user_id=blog_post.author.id) }}">
+                               {{ blog_post.author.name }}</a>
+                           on {{ blog_post.date }}</span>
             </div>
         </div>
     </div>
@@ -20,27 +23,27 @@
     <!-- Post Content -->
     <article>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="d-flex flex-row justify-content-center">
+                <div class="blog-body">
                     {{ blog_post.body | safe }}
                 </div>
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <p>
-                        {% for tag in blog_post.tags %}
-                        {{ tag.name }}
-                        {% endfor %}
-                    </p>
-                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-center">
+                <p class="tags">Tags:
+                    {% for tag in blog_post.tags %}
+                    {{ tag.name }}
+                    {% endfor %}
+                </p>
+            </div>
+            <div class="d-flex flex-row justify-content-start btn-edit">
                 {% if current_user.is_authenticated and ( current_user.id == blog_post.author.id or current_user.id == 1
                 )
                 %}
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <a class="btn btn-primary float-right"
-                       href="{{ url_for('blog.edit_blog_post', edit_post_id=blog_post.id) }}">Edit</a>
-                </div>
+                <a class="btn btn-primary float-right"
+                   href="{{ url_for('blog.edit_blog_post', edit_post_id=blog_post.id) }}">Edit</a>
                 {% endif %}
-
             </div>
+        </div>
         </div>
         <hr>
         {% for blog_comment in blog_post.comments %}
@@ -70,7 +73,7 @@
 
     <!-- Comment -->
     {% if current_user.is_authenticated %}
-    <div class="container">
+    <div class="container edit-comment">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 {{ ckeditor.load() }}
@@ -83,4 +86,3 @@
     <hr>
 </section>
 {% include "footer.html" %}
-
