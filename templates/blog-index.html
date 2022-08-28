@@ -10,7 +10,7 @@
     <div class="container article-container">
         {% if blog_posts %}
         {% for blog_post in blog_posts %}
-        <div class="d-flex flex-row justify-content-start p-3">
+        <div class="d-flex flex-row justify-content-center p-3">
             <div class="post-preview">
                 <a href="{{ url_for('blog.show_blog_post', blog_post_id=blog_post.id) }}">
                     <h2 class="post-title">{{ blog_post.title }}</h2>

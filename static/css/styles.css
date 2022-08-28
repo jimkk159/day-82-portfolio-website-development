@@ -122,11 +122,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 hr{
-  border-top: 6px white;
-  background-color:black;
+  border-top: 3px solid #fff;
   color:white;
-  margin: 0;
-  height: 3px;
+  margin: 1px 0;
 }
 
 .introduce-section img,
@@ -494,7 +492,7 @@ text-align: center;
 }
 .blog-index-section .container.article-container{
     font-family: Georgia, serif;
-    padding: 2% 10%;
+    padding: 2% 10% 5%;
 }
 .blog-index-section .blog-info{
     padding-right: 5%;
@@ -531,7 +529,7 @@ text-align: center;
     font-family: Georgia, serif;
     font-size:20px;
     text-align: justify;
-     width:100%;
+    width:100%;
     word-wrap: break-word;
 }
 .blog-post-section .tags{
@@ -545,7 +543,10 @@ text-align: center;
     width: 10%;
     margin:1% 0;
 }
+.blog-index-section hr{
+    color:#fff;
 
+}
 .edit-comment{
     font-family: Georgia, serif;
     font-size:20px;
@@ -595,4 +596,39 @@ text-align: center;
 }
 .new-blog-section .form-control option, .new-blog-section .form-control{
     font-family: Georgia, serif;
+}
+/* Personal info Section */
+.personal-info-section{
+text-align: center;
+}
+
+.personal-info-section .personal-info-container{
+    padding: 10% 3% 7% 2%;
+    height: 100vh;
+}
+.personal-info-section .personal-post{
+    font-family: Georgia, serif;
+    padding: 0% 5% 0% 5%;
+    width: 70%;
+    height: 70vh;
+}
+.personal-info-section .personal-post .personal-post-title{
+    padding-bottom: 5%;
+}
+.personal-info-section .personal-post .post-title{
+    padding: 5px 5% 1px;
+}
+.personal-info-section .personal-post .post-info{
+    padding: 0% 5% 1px;
+}
+.personal-info-section .personal-info{
+    border: 2px solid #373737;
+    font-family: Georgia, serif;
+    font-size:18px;
+    padding: 2%;
+    width: 30%;
+    height: 70vh;
+}
+.personal-info-section .personal-info p{
+    padding: 2% 5%;
 }
