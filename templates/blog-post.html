@@ -28,6 +28,7 @@
                     {{ blog_post.body | safe }}
                 </div>
             </div>
+            <hr>
             <div class="d-flex flex-row justify-content-start">
                 <p class="tags">Tags:
                     {% for tag in blog_post.tags %}
@@ -44,35 +45,40 @@
                 {% endif %}
             </div>
         </div>
-        </div>
-        <hr>
+
+        {% if blog_post.comments %}
         {% for blog_comment in blog_post.comments %}
-        <div class="container">
-            <div class="row">
-                <div class="commenterImage">
+        <div class="container comment-container">
+            <hr>
+            <div class="d-flex flex-row justify-content-between comment-item">
+                <div class="d-flex flex-column comment-icon">
                     <a href="{{ url_for('user.personal_site', user_id=blog_comment.author.id) }}"><img
                             src="{{ blog_comment.author.email | gravatar }}"/></a>
                 </div>
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    {{ blog_comment.body | safe }}
+                <div class="d-flex flex-column comment-message">
+                    <div class="d-flex flex-row justify-content-center align-items-start comment-message-body">
+                        {{ blog_comment.body | safe }}
+                    </div>
+                    <div class="d-flex flex-row justify-content-end comment-message-info">
                     <span class="meta">Posted by<a
                             href="{{ url_for('user.personal_site', user_id=blog_comment.author.id) }}">{{ blog_comment.author.name }}</a>on {{ blog_comment.date }}</span>
-                    {% if current_user.is_authenticated and (current_user.id == blog_comment.author.id or
-                    current_user.id
-                    == 1 ) %}
-                    <a href="{{ url_for('blog.delete_comment', comment_id=blog_comment.id) }}"><img
-                            src="{{ url_for('static',filename='img/cross.png') }}" style="width:1rem"></a>
-                    {% endif %}
+                        {% if current_user.is_authenticated and (current_user.id == blog_comment.author.id or
+                        current_user.id
+                        == 1 ) %}
+                        <a href="{{ url_for('blog.delete_comment', comment_id=blog_comment.id) }}"><img
+                                src="{{ url_for('static',filename='img/cross.png') }}" style="width:1rem"></a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
         {% endfor %}
+        {% endif %}
     </article>
-
-    <hr>
 
     <!-- Comment -->
     {% if current_user.is_authenticated %}
+    <hr>
     <div class="edit-comment">
         <div class="container">
             <div class="d-flex flex-row justify-content-center">
@@ -83,6 +89,6 @@
         </div>
     </div>
     {% endif %}
-    <hr>
+
 </section>
 {% include "footer.html" %}
