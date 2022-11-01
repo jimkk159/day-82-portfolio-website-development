@@ -11,5 +11,4 @@ portfolio_blueprint = Blueprint('portfolio', __name__)
 def portfolio_index():
     # query_post = Post.query.filter(Post.tags.any(name='portfolio'))
     query_post = Post.query.join(Post.tags, aliased=True).filter_by(name='portfolio')
-
     return render_template('blog-index.html', favicon=get_favicon(), blog_posts=query_post, portfolio=True), 200

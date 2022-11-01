@@ -511,6 +511,7 @@ text-align: center;
 .blog-index-section .create-btn{
     padding: 0 10% 5%;
 }
+
 /* Blog Post Section */
 .blog-post-section{
     text-align: center;
@@ -620,9 +621,10 @@ text-align: center;
 .new-blog-section .form-control option, .new-blog-section .form-control{
     font-family: Georgia, serif;
 }
+
 /* Personal info Section */
 .personal-info-section{
-text-align: center;
+    text-align: center;
 }
 
 .personal-info-section .personal-info-container{
